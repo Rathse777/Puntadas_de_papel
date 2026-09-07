@@ -1,0 +1,319 @@
+// CONFIGURACIÓN DE PRODUCTOS CON MÚLTIPLES FOTOS Y DETALLES
+const PRODUCTS = [
+    {
+        id: 1,
+        name: "Guantes de patas de gatito tejidos para jóvenes",
+        price: 7.00,
+        category: "Atuendos a Crochet",
+        description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color negro, crema, blanco y rosa.",
+        images: [
+            "imagenes/GuantesNegros.png",
+            "imagenes/GuantesBlancos.png",
+            "imagenes/GuantesBlancosyNegros.jpeg"
+        ]
+    },
+    {
+        id: 2,
+        name: "Guantes de patas de gatito tejidos para niñas",
+        price: 4.00,
+        category: "Atuendos a Crochet",
+        description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color blanco y rosa.",
+        images: [
+            "imagenes/GuantesRosas.png",
+            "imagenes/GuantesRosasPuestos1.jpeg",
+            "imagenes/GuantesRosasPuestos2.jpeg"
+        ]
+    },
+    {
+        id: 3,
+        name: "Álbum de Figuritas Kpop Demon-Hunters",
+        price: 6.00,
+        category: "Papelería",
+        description: "Revivie los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables",
+        images: [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        id: 4,
+        name: "Paquete de 32 figuritas Kpop Demon-Hunters",
+        price: 21.00,
+        category: "Papelería",
+        description: "Cada paquete trae 5 figuritas de un tamaño.",
+        images: [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        id: 5,
+        name: "Top Tejido Rosa Pastel",
+        price: 30.00,
+        category: "Atuendos a Crochet",
+        description: "Prenda de punto suave y elástica de excelente calce. Ajustable en la espalda, perfecta para climas frescos o looks veraniegos coquetos.",
+        images: [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        id: 6,
+        name: "Conejo Amigurumi",
+        price: 15.00,
+        category: "Peluches",
+        description: "Un tierno compañero tejido con la técnica amigurumi. Relleno suave y esponjoso con ojos de seguridad. El regalo perfecto para cualquier edad.",
+        images: [
+            "",
+            "",
+            ""
+        ]
+    },
+    {
+        id: 7,
+        name: "Cartera Lavanda",
+        price: 22.50,
+        category: "Bolsos y Accesorios",
+        description: "Hecha 100% a mano con cuerina y forro de seda. Ideal para salidas casuales. Súper espaciosa, forrada por dentro y con broche imantado para máxima seguridad.",
+        images: [
+            "",
+            "",
+            ""
+        ]
+    },
+];
+
+const WHATSAPP_PHONE = '+584147429116';
+let cart = [];
+
+// ELEMENTOS DOM
+const productsGrid = document.getElementById('products-grid');
+const mainStoreContainer = document.querySelector('.store-container');
+const cartItemsContainer = document.getElementById('cart-items-container');
+const cartTotalAmount = document.getElementById('cart-total-amount');
+const cartCount = document.getElementById('cart-count');
+const checkoutSection = document.getElementById('checkout-section');
+const checkoutForm = document.getElementById('checkout-form');
+
+// RENDERIZAR PRODUCTOS (FILTRADO POR PÁGINA)
+function renderCatalog() {
+    if (!productsGrid) return;
+    
+    productsGrid.innerHTML = '';
+    
+    // Detectar la categoría asignada en la página actual
+    const currentCategory = mainStoreContainer ? mainStoreContainer.getAttribute('data-category') : null;
+    
+    // Filtrar lista de productos
+    const filteredProducts = currentCategory && currentCategory !== 'all'
+        ? PRODUCTS.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase())
+        : PRODUCTS;
+
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más productos en esta sección 🌸</p>';
+        return;
+    }
+
+    filteredProducts.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'product-card';
+        div.innerHTML = `
+            <div class="product-card-clickable" onclick="openProductDetails(${p.id})">
+                <img src="${p.images[0] || ''}" class="product-img" alt="${p.name}">
+                <span class="product-card-category">${p.category}</span>
+                <h3 class="product-name">${p.name}</h3>
+                <p class="product-price">$${p.price.toFixed(2)}</p>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al carrito 🌸</button>
+        `;
+        productsGrid.appendChild(div);
+    });
+}
+
+// ELEMENTOS DEL MODAL DE DETALLES
+const productDetailModal = document.getElementById('product-detail-modal');
+const closeDetailBtn = document.getElementById('close-detail-btn');
+const popoutMainImg = document.getElementById('popout-main-img');
+const popoutThumbnails = document.getElementById('popout-thumbnails');
+const popoutCategory = document.getElementById('popout-category');
+const popoutName = document.getElementById('popout-name');
+const popoutPrice = document.getElementById('popout-price');
+const popoutDescription = document.getElementById('popout-description');
+const popoutAddBtn = document.getElementById('popout-add-btn');
+
+// ELEMENTOS DEL MODAL DE SEGURIDAD
+const securityModal = document.getElementById('security-modal');
+const securityConfirmBtn = document.getElementById('security-confirm-btn');
+const securityCancelBtn = document.getElementById('security-cancel-btn');
+
+// MODAL DE ÉXITO PAGO
+const successModal = document.getElementById('success-modal');
+const closeModalBtn = document.getElementById('close-modal-btn');
+
+// RENDERIZAR PRODUCTOS EN LA TIENDA
+function renderCatalog() {
+    productsGrid.innerHTML = '';
+    PRODUCTS.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'product-card';
+        div.innerHTML = `
+            <div class="product-card-clickable" onclick="openProductDetails(${p.id})">
+                <img src="${p.images[0]}" class="product-img">
+                <span class="product-card-category">${p.category}</span>
+                <h3 class="product-name">${p.name}</h3>
+                <p class="product-price">$${p.price.toFixed(2)}</p>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al carrito 🌸</button>
+        `;
+        productsGrid.appendChild(div);
+    });
+}
+
+// ABRIR DETALLES DEL PRODUCTO (MODAL FLOTANTE)
+function openProductDetails(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
+
+    // Poblar textos básicos
+    popoutCategory.textContent = p.category;
+    popoutName.textContent = p.name;
+    popoutPrice.textContent = `$${p.price.toFixed(2)}`;
+    popoutDescription.textContent = p.description;
+    
+    // Configurar imagen principal inicial
+    popoutMainImg.src = p.images[0];
+
+    // Limpiar y poblar miniaturas de fotos
+    popoutThumbnails.innerHTML = '';
+    p.images.forEach((imgUrl, index) => {
+        const img = document.createElement('img');
+        img.src = imgUrl;
+        img.className = `thumb-img ${index === 0 ? 'active' : ''}`;
+        
+        // Evento al dar clic a la miniatura
+        img.onclick = () => {
+            popoutMainImg.src = imgUrl;
+            document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+            img.classList.add('active');
+        };
+        popoutThumbnails.appendChild(img);
+    });
+
+    // Vincular acción del botón del modal al carrito
+    popoutAddBtn.onclick = () => {
+        addToCart(p.id);
+        closeProductDetails();
+    };
+
+    // Mostrar modal flotante
+    productDetailModal.classList.remove('hidden');
+}
+
+function closeProductDetails() {
+    productDetailModal.classList.add('hidden');
+}
+
+// CERRAR MODAL DETALLES AL TOCAR FUERA O LA X
+closeDetailBtn.onclick = closeProductDetails;
+productDetailModal.onclick = (e) => {
+    if (e.target === productDetailModal) closeProductDetails();
+};
+
+// CARRITO DE COMPRAS LÓGICA
+function addToCart(id) {
+    const p = PRODUCTS.find(x => x.id === id);
+    const existing = cart.find(item => item.id === id);
+    if (existing) existing.quantity++;
+    else cart.push({...p, quantity: 1});
+    updateUI();
+}
+
+// NUEVO: FUNCIÓN PARA ELIMINAR ELEMENTOS COMPLETAMENTE DEL CARRITO
+function removeFromCart(id) {
+    cart = cart.filter(item => item.id !== id);
+    updateUI();
+}
+
+function updateUI() {
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+    let count = 0;
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Aún no hay tesoros en tu carrito.</p>';
+        checkoutSection.classList.add('hidden');
+    } else {
+        checkoutSection.classList.remove('hidden');
+        cart.forEach(item => {
+            total += item.price * item.quantity;
+            count += item.quantity;
+            const div = document.createElement('div');
+            div.className = 'cart-item-row';
+            div.innerHTML = `
+                <div><b>${item.name}</b> x${item.quantity}</div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                    <button class="btn-delete-item" onclick="removeFromCart(${item.id})" title="Eliminar del pedido">🗑️</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(div);
+        });
+    }
+    cartTotalAmount.textContent = `$${total.toFixed(2)}`;
+    cartCount.textContent = count;
+}
+
+// INTERCEPCIÓN DEL FORMULARIO: SE ABRE LA VENTANA DE SEGURIDAD PRIMERO
+checkoutForm.onsubmit = (e) => {
+    e.preventDefault();
+    securityModal.classList.remove('hidden'); // Abre ventana de confirmación / seguridad
+};
+
+// ACCIÓN DEL BOTÓN CANCELAR EN EL MODAL DE SEGURIDAD
+securityCancelBtn.onclick = () => {
+    securityModal.classList.add('hidden'); // Cierra de forma segura para dejar al cliente revisar
+};
+
+// ACCIÓN DEL BOTÓN ACEPTAR EN EL MODAL DE SEGURIDAD
+securityConfirmBtn.onclick = () => {
+    securityModal.classList.add('hidden');
+    successModal.classList.remove('hidden'); // Transiciona al modal de datos del receptor
+};
+
+// FINALIZAR HACIA WHATSAPP DESDE EL MODAL DE ÉXITO
+closeModalBtn.onclick = () => {
+    const name = document.getElementById('customer-name').value;
+    const phone = document.getElementById('customer-phone').value;
+    const state = document.getElementById('shipping-state').value;
+    const agency = document.getElementById('shipping-agency').value;
+    const bank = document.getElementById('payment-bank').value;
+    const ref = document.getElementById('payment-reference').value;
+
+    let msg = `🌸 *NUEVO PEDIDO*\n\n`;
+    msg += `👤 *Cliente:* ${name}\n`;
+    msg += `📞 *Tel:* ${phone}\n\n`;
+    msg += `📦 *Agencia:* ${state} - ${agency}\n\n`;
+    msg += `💳 *Pago:* ${bank} (Ref: ${ref})\n`;
+    msg += `🖼️ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
+    msg += `🛒 *PRODUCTOS:*\n`;
+    
+    cart.forEach(item => {
+        msg += `- ${item.name} (x${item.quantity})\n`;
+    });
+    
+    msg += `\n💰 *TOTAL:* ${cartTotalAmount.textContent}`;
+
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    
+    // Resetear Estado de la Tienda por completo
+    cart = [];
+    checkoutForm.reset();
+    updateUI();
+    successModal.classList.add('hidden');
+};
+
+document.addEventListener('DOMContentLoaded', renderCatalog);
