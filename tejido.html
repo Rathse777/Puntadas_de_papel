@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejido - Puntadas de Papel</title>
+    <title>Puntadas de Papel - Tejido</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,15 +14,16 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-                <h1 class="logo-text">Puntadas de Papel</h1>
+                <h1 class="logo-text">🌸 Puntadas de Papel</h1>
             </div>
             
             <nav class="category-nav">
                 <a href="index.html">Todos</a>
-                <a href="tejido.html" class="active">Tejido</a> <!-- Marcar active -->
+                <a href="tejido.html" class="active">Tejido</a>
                 <a href="papeleria.html">Papelería</a>
                 <a href="perfumes.html">Perfumes</a>
                 <a href="flores.html">Flores</a>
+                <a href="birretes.html">Birretes</a>
             </nav>
 
             <a href="#cart-section" class="cart-icon-btn">
@@ -28,50 +32,131 @@
         </div>
     </header>
 
-    <!-- Asignar categoría "Tejido" -->
-    <main class="store-container" data-category="Tejido">
-        
+    <main class="store-container">
         <section class="catalog-section">
-            <h2 class="section-title">Productos de Tejido 🧶</h2>
+            <h2 class="section-title">Tejido 🌸</h2>
             <div id="products-grid" class="products-grid"></div>
         </section>
 
-        <!-- El resto del carrito,checkout y modal se mantiene idéntico -->
-        <aside id="cart-section" class="cart-section">
-            <h2>Tu Carrito</h2>
-            <div id="cart-items-container"></div>
-            <div class="cart-summary">
-                <p><strong>Total:</strong> $<span id="cart-total-amount">0.00</span></p>
-                <button class="btn-checkout" onclick="showCheckoutForm()">Finalizar Pedido</button>
-            </div>
-        </aside>
+        <aside class="checkout-sidebar">
+            <section id="cart-section" class="cart-section">
+                <h2 class="section-title">Tu Pedido</h2>
+                <div id="cart-items-container" class="cart-items-container">
+                    <p class="empty-cart-msg">Aún no hay tesoros en tu carrito.</p>
+                </div>
+                <div class="cart-total-box">
+                    <span>Total:</span>
+                    <span id="cart-total-amount">$0.00</span>
+                </div>
+            </section>
 
-        <div id="checkout-section" class="checkout-modal" style="display:none;">
-            <div class="checkout-content">
-                <h3>Datos de Entrega</h3>
-                <form id="checkout-form" onsubmit="sendWhatsAppOrder(event)">
-                    <label>Nombre:</label>
-                    <input type="text" id="cust-name" required>
-                    <label>Teléfono:</label>
-                    <input type="tel" id="cust-phone" required>
-                    <label>Dirección/Notas:</label>
-                    <textarea id="cust-address" required></textarea>
-                    <button type="submit" class="btn-send-wa">Enviar pedido por WhatsApp 📲</button>
-                    <button type="button" class="btn-cancel" onclick="hideCheckoutForm()">Cancelar</button>
+            <section id="checkout-section" class="checkout-section hidden">
+                <h2 class="section-title">Finalizar Compra</h2>
+                <form id="checkout-form" class="checkout-form">
+                    <fieldset>
+                        <legend>🌸 Tus Datos</legend>
+                        <div class="form-group">
+                            <label>Nombre Completo</label>
+                            <input type="text" id="customer-name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label>Cédula / RIF</label>
+                            <input type="text" id="customer-id" required placeholder="V-00000000">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" id="customer-phone" required placeholder="0414-0000000">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>📦 Envío por agencia (ZOOM/MRW)</legend>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <input type="text" id="shipping-state" required placeholder="Miranda">
+                        </div>
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" id="shipping-city" required placeholder="Caracas">
+                        </div>
+                        <div class="form-group">
+                            <label>Agencia específica</label>
+                            <input type="text" id="shipping-agency" required placeholder="Agencia Las Mercedes">
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn-submit-order">Confirmar por WhatsApp</button>
                 </form>
-            </div>
-        </div>
-
+            </section>
+        </aside>
     </main>
 
-    <div id="product-modal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('product-modal')">&times;</span>
-            <div id="modal-product-details"></div>
+    <!-- MODALES (mismos que index.html) -->
+    <div id="product-detail-modal" class="modal-overlay hidden">
+        <div class="modal-content product-popout">
+            <button id="close-detail-btn" class="close-popout-btn">×</button>
+            <div class="popout-layout">
+                <div class="popout-gallery">
+                    <img id="popout-main-img" src="" alt="Producto" class="popout-large-img">
+                    <div id="popout-thumbnails" class="popout-thumbnails"></div>
+                </div>
+                <div class="popout-info">
+                    <span id="popout-category" class="product-category-tag">Categoría</span>
+                    <h2 id="popout-name">Nombre del Producto</h2>
+                    <p id="popout-price" class="popout-price">$0.00</p>
+                    <div class="popout-description-box">
+                        <h4>Descripción:</h4>
+                        <p id="popout-description">Aquí irán los detalles...</p>
+                    </div>
+                    <button id="popout-add-btn" class="btn-submit-order">Añadir al carrito 🌸</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script src="products.js"></script>
+    <div id="security-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h2>¿Confirmar tu compra?</h2>
+            <p>Por favor, asegúrate de que todos tus datos e ítems del pedido sean correctos antes de continuar.</p>
+            <div class="security-actions">
+                <button id="security-cancel-btn" class="btn-secondary-modal">Cancelar y revisar</button>
+                <button id="security-confirm-btn" class="btn-primary-modal">Aceptar y continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-icon">🌸</div>
+            <h2>¡Casi listo!</h2>
+            <p>Para procesar tu envío rápido, recuerda que el pago debe realizarse a:</p>
+            <div class="receiver-data-modal">
+                <p><strong>Banco:</strong> Banco de Venezuela - 0102</p>
+                <p><strong>Teléfono:</strong> 0414-7429116</p>
+                <p><strong>RIF:</strong> V-32195433</p>
+            </div>
+            <fieldset>
+                <legend>💳 Comprobante de Pago</legend>
+                <div class="form-group">
+                    <label>Banco Emisor</label>
+                    <input type="text" id="payment-bank" required>
+                </div>
+                <div class="form-group">
+                    <label>Número de Referencia</label>
+                    <input type="text" id="payment-reference" required>
+                </div>
+                <div class="form-group">
+                    <label>Subir Captura *</label>
+                    <input type="file" id="payment-screenshot" accept="image/*" required class="file-input">
+                    <small>Sube la imagen de tu transferencia o pago móvil.</small>
+                </div>
+            </fieldset>
+            <p class="modal-instruction">Al presionar "Enviar", se abrirá WhatsApp. <b>No olvides adjuntar la imagen del pago manualmente</b> en el chat.</p>
+            <button id="close-modal-btn" class="btn-close-modal">Enviar Pedido</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

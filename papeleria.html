@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tejido - Puntadas de Papel</title>
+    <title>Puntadas de Papel - Papelería</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,15 +14,16 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-                <h1 class="logo-text">Puntadas de Papel</h1>
+                <h1 class="logo-text">🌸 Puntadas de Papel</h1>
             </div>
             
             <nav class="category-nav">
                 <a href="index.html">Todos</a>
                 <a href="tejido.html">Tejido</a>
-                <a href="papeleria.html" class="active">Papelería</a> <!-- Marcar active -->
+                <a href="papeleria.html" class="active">Papelería</a>
                 <a href="perfumes.html">Perfumes</a>
                 <a href="flores.html">Flores</a>
+                <a href="birretes.html">Birretes</a>
             </nav>
 
             <a href="#cart-section" class="cart-icon-btn">
@@ -28,50 +32,7 @@
         </div>
     </header>
 
-    <!-- Asignar categoría "Papelería" -->
-    <main class="store-container" data-category="Papelería">
-   
+    <main class="store-container">
         <section class="catalog-section">
-        <h2 class="section-title">Papelería y Detalles 📝</h2>
-        <div id="products-grid" class="products-grid"></div>
-    </section>
-
-        <!-- El resto del carrito,checkout y modal se mantiene idéntico -->
-        <aside id="cart-section" class="cart-section">
-            <h2>Tu Carrito</h2>
-            <div id="cart-items-container"></div>
-            <div class="cart-summary">
-                <p><strong>Total:</strong> $<span id="cart-total-amount">0.00</span></p>
-                <button class="btn-checkout" onclick="showCheckoutForm()">Finalizar Pedido</button>
-            </div>
-        </aside>
-
-        <div id="checkout-section" class="checkout-modal" style="display:none;">
-            <div class="checkout-content">
-                <h3>Datos de Entrega</h3>
-                <form id="checkout-form" onsubmit="sendWhatsAppOrder(event)">
-                    <label>Nombre:</label>
-                    <input type="text" id="cust-name" required>
-                    <label>Teléfono:</label>
-                    <input type="tel" id="cust-phone" required>
-                    <label>Dirección/Notas:</label>
-                    <textarea id="cust-address" required></textarea>
-                    <button type="submit" class="btn-send-wa">Enviar pedido por WhatsApp 📲</button>
-                    <button type="button" class="btn-cancel" onclick="hideCheckoutForm()">Cancelar</button>
-                </form>
-            </div>
-        </div>
-
-    </main>
-
-    <div id="product-modal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('product-modal')">&times;</span>
-            <div id="modal-product-details"></div>
-        </div>
-    </div>
-
-    <script src="products.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+            <h2 class="section-title">Papelería 📚</h2>
+            <div id="products-grid" class="products-grid"></div>

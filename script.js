@@ -4,7 +4,7 @@ const PRODUCTS = [
         id: 1,
         name: "Guantes de patas de gatito tejidos para jóvenes",
         price: 7.00,
-        category: "Atuendos a Crochet",
+        category: "Tejido",
         description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color negro, crema, blanco y rosa.",
         images: [
             "imagenes/GuantesNegros.png",
@@ -16,7 +16,7 @@ const PRODUCTS = [
         id: 2,
         name: "Guantes de patas de gatito tejidos para niñas",
         price: 4.00,
-        category: "Atuendos a Crochet",
+        category: "Tejido",
         description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color blanco y rosa.",
         images: [
             "imagenes/GuantesRosas.png",
@@ -31,9 +31,9 @@ const PRODUCTS = [
         category: "Papelería",
         description: "Revivie los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables",
         images: [
-            "",
-            "",
-            ""
+            "imagenes/album1.png",
+            "imagenes/album2.png",
+            "imagenes/album3.png"
         ]
     },
     {
@@ -43,33 +43,33 @@ const PRODUCTS = [
         category: "Papelería",
         description: "Cada paquete trae 5 figuritas de un tamaño.",
         images: [
-            "",
-            "",
-            ""
+            "imagenes/figuritas1.png",
+            "imagenes/figuritas2.png",
+            "imagenes/figuritas3.png"
         ]
     },
     {
         id: 5,
         name: "Top Tejido Rosa Pastel",
         price: 30.00,
-        category: "Atuendos a Crochet",
+        category: "Tejido",
         description: "Prenda de punto suave y elástica de excelente calce. Ajustable en la espalda, perfecta para climas frescos o looks veraniegos coquetos.",
         images: [
-            "",
-            "",
-            ""
+            "imagenes/toprosa1.png",
+            "imagenes/toprosa2.png",
+            "imagenes/toprosa3.png"
         ]
     },
     {
         id: 6,
         name: "Conejo Amigurumi",
         price: 15.00,
-        category: "Peluches",
+        category: "Tejido",
         description: "Un tierno compañero tejido con la técnica amigurumi. Relleno suave y esponjoso con ojos de seguridad. El regalo perfecto para cualquier edad.",
         images: [
-            "",
-            "",
-            ""
+            "imagenes/conejo1.png",
+            "imagenes/conejo2.png",
+            "imagenes/conejo3.png"
         ]
     },
     {
@@ -79,11 +79,86 @@ const PRODUCTS = [
         category: "Bolsos y Accesorios",
         description: "Hecha 100% a mano con cuerina y forro de seda. Ideal para salidas casuales. Súper espaciosa, forrada por dentro y con broche imantado para máxima seguridad.",
         images: [
-            "",
-            "",
-            ""
+            "imagenes/cartera1.png",
+            "imagenes/cartera2.png",
+            "imagenes/cartera3.png"
         ]
     },
+    // ========== NUEVOS PRODUCTOS PARA PERFUMES ==========
+    {
+        id: 8,
+        name: "Perfume Floral Encanto",
+        price: 35.00,
+        category: "Perfumes",
+        description: "Fragancia floral con notas de jazmín, rosa y un toque de vainilla. Perfecto para el día a día.",
+        images: [
+            "imagenes/perfume1.png",
+            "imagenes/perfume2.png",
+            "imagenes/perfume3.png"
+        ]
+    },
+    {
+        id: 9,
+        name: "Perfume Misterio Nocturno",
+        price: 45.00,
+        category: "Perfumes",
+        description: "Aroma intenso con notas de sándalo, ámbar y bergamota. Ideal para ocasiones especiales.",
+        images: [
+            "imagenes/perfume4.png",
+            "imagenes/perfume5.png",
+            "imagenes/perfume6.png"
+        ]
+    },
+    // ========== NUEVOS PRODUCTOS PARA FLORES ==========
+    {
+        id: 10,
+        name: "Ramo de Rosas Eternas",
+        price: 25.00,
+        category: "Flores",
+        description: "Hermoso ramo de rosas preservadas que duran hasta un año. Caja decorativa incluida.",
+        images: [
+            "imagenes/rosas1.png",
+            "imagenes/rosas2.png",
+            "imagenes/rosas3.png"
+        ]
+    },
+    {
+        id: 11,
+        name: "Arreglo Floral Primavera",
+        price: 30.00,
+        category: "Flores",
+        description: "Combinación de flores de temporada en tonos pastel. Incluye jarrón de vidrio.",
+        images: [
+            "imagenes/flores1.png",
+            "imagenes/flores2.png",
+            "imagenes/flores3.png"
+        ]
+    },
+    // ========== NUEVOS PRODUCTOS PARA BIRRETES ==========
+    {
+        id: 12,
+        name: "Birrete Personalizado",
+        price: 18.00,
+        category: "Birretes",
+        description: "Birrete universitario con bordado personalizado. Disponible en varios colores.",
+        images: [
+            "imagenes/birrete1.png",
+            "imagenes/birrete2.png",
+            "imagenes/birrete3.png"
+        ]
+    },
+    {
+        id: 13,
+        name: "Birrete con Borla Dorada",
+        price: 22.00,
+        category: "Birretes",
+        description: "Birrete elegante con borla dorada. Ideal para graduaciones.",
+        images: [
+            "imagenes/birrete4.png",
+            "imagenes/birrete5.png",
+            "imagenes/birrete6.png"
+        ]
+    }
 ];
 
 const WHATSAPP_PHONE = '+584147429116';
@@ -98,25 +173,42 @@ const cartCount = document.getElementById('cart-count');
 const checkoutSection = document.getElementById('checkout-section');
 const checkoutForm = document.getElementById('checkout-form');
 
-// RENDERIZAR PRODUCTOS (FILTRADO POR PÁGINA)
+// ============================================================
+// NUEVA FUNCIÓN: OBTENER CATEGORÍA DESDE LA URL
+// ============================================================
+function getCategoryFromURL() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop();
+    
+    const categoryMap = {
+        'index.html': 'Todos',
+        'tejido.html': 'Tejido',
+        'papeleria.html': 'Papelería',
+        'perfumes.html': 'Perfumes',
+        'flores.html': 'Flores',
+        'birretes.html': 'Birretes'
+    };
+    
+    return categoryMap[page] || 'Todos';
+}
+
+// RENDERIZAR PRODUCTOS (FILTRADO POR CATEGORÍA DE LA URL)
 function renderCatalog() {
     if (!productsGrid) return;
     
-    productsGrid.innerHTML = '';
+    const currentCategory = getCategoryFromURL();
     
-    // Detectar la categoría asignada en la página actual
-    const currentCategory = mainStoreContainer ? mainStoreContainer.getAttribute('data-category') : null;
-    
-    // Filtrar lista de productos
-    const filteredProducts = currentCategory && currentCategory !== 'all'
-        ? PRODUCTS.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase())
-        : PRODUCTS;
+    // Si es "Todos", mostrar todos los productos
+    const filteredProducts = currentCategory === 'Todos'
+        ? PRODUCTS
+        : PRODUCTS.filter(p => p.category === currentCategory);
 
     if (filteredProducts.length === 0) {
         productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más productos en esta sección 🌸</p>';
         return;
     }
 
+    productsGrid.innerHTML = '';
     filteredProducts.forEach(p => {
         const div = document.createElement('div');
         div.className = 'product-card';
@@ -131,7 +223,19 @@ function renderCatalog() {
         `;
         productsGrid.appendChild(div);
     });
+
+    // Actualizar el título de la sección
+    const sectionTitle = document.querySelector('.section-title');
+    if (sectionTitle) {
+        sectionTitle.textContent = currentCategory === 'Todos' 
+            ? 'Dulces Creaciones' 
+            : `${currentCategory} 🌸`;
+    }
 }
+
+// ============================================================
+// RESTO DEL CÓDIGO (MODALES, CARRITO, ETC.)
+// ============================================================
 
 // ELEMENTOS DEL MODAL DE DETALLES
 const productDetailModal = document.getElementById('product-detail-modal');
@@ -153,25 +257,6 @@ const securityCancelBtn = document.getElementById('security-cancel-btn');
 const successModal = document.getElementById('success-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 
-// RENDERIZAR PRODUCTOS EN LA TIENDA
-function renderCatalog() {
-    productsGrid.innerHTML = '';
-    PRODUCTS.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'product-card';
-        div.innerHTML = `
-            <div class="product-card-clickable" onclick="openProductDetails(${p.id})">
-                <img src="${p.images[0]}" class="product-img">
-                <span class="product-card-category">${p.category}</span>
-                <h3 class="product-name">${p.name}</h3>
-                <p class="product-price">$${p.price.toFixed(2)}</p>
-            </div>
-            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al carrito 🌸</button>
-        `;
-        productsGrid.appendChild(div);
-    });
-}
-
 // ABRIR DETALLES DEL PRODUCTO (MODAL FLOTANTE)
 function openProductDetails(id) {
     const p = PRODUCTS.find(x => x.id === id);
@@ -184,18 +269,18 @@ function openProductDetails(id) {
     popoutDescription.textContent = p.description;
     
     // Configurar imagen principal inicial
-    popoutMainImg.src = p.images[0];
+    popoutMainImg.src = p.images[0] || '';
 
     // Limpiar y poblar miniaturas de fotos
     popoutThumbnails.innerHTML = '';
     p.images.forEach((imgUrl, index) => {
         const img = document.createElement('img');
-        img.src = imgUrl;
+        img.src = imgUrl || '';
         img.className = `thumb-img ${index === 0 ? 'active' : ''}`;
         
         // Evento al dar clic a la miniatura
         img.onclick = () => {
-            popoutMainImg.src = imgUrl;
+            popoutMainImg.src = imgUrl || '';
             document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
             img.classList.add('active');
         };
@@ -217,10 +302,12 @@ function closeProductDetails() {
 }
 
 // CERRAR MODAL DETALLES AL TOCAR FUERA O LA X
-closeDetailBtn.onclick = closeProductDetails;
-productDetailModal.onclick = (e) => {
-    if (e.target === productDetailModal) closeProductDetails();
-};
+if (closeDetailBtn) closeDetailBtn.onclick = closeProductDetails;
+if (productDetailModal) {
+    productDetailModal.onclick = (e) => {
+        if (e.target === productDetailModal) closeProductDetails();
+    };
+}
 
 // CARRITO DE COMPRAS LÓGICA
 function addToCart(id) {
@@ -231,22 +318,22 @@ function addToCart(id) {
     updateUI();
 }
 
-// NUEVO: FUNCIÓN PARA ELIMINAR ELEMENTOS COMPLETAMENTE DEL CARRITO
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     updateUI();
 }
 
 function updateUI() {
+    if (!cartItemsContainer) return;
     cartItemsContainer.innerHTML = '';
     let total = 0;
     let count = 0;
 
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Aún no hay tesoros en tu carrito.</p>';
-        checkoutSection.classList.add('hidden');
+        if (checkoutSection) checkoutSection.classList.add('hidden');
     } else {
-        checkoutSection.classList.remove('hidden');
+        if (checkoutSection) checkoutSection.classList.remove('hidden');
         cart.forEach(item => {
             total += item.price * item.quantity;
             count += item.quantity;
@@ -262,58 +349,67 @@ function updateUI() {
             cartItemsContainer.appendChild(div);
         });
     }
-    cartTotalAmount.textContent = `$${total.toFixed(2)}`;
-    cartCount.textContent = count;
+    if (cartTotalAmount) cartTotalAmount.textContent = `$${total.toFixed(2)}`;
+    if (cartCount) cartCount.textContent = count;
 }
 
 // INTERCEPCIÓN DEL FORMULARIO: SE ABRE LA VENTANA DE SEGURIDAD PRIMERO
-checkoutForm.onsubmit = (e) => {
-    e.preventDefault();
-    securityModal.classList.remove('hidden'); // Abre ventana de confirmación / seguridad
-};
+if (checkoutForm) {
+    checkoutForm.onsubmit = (e) => {
+        e.preventDefault();
+        if (securityModal) securityModal.classList.remove('hidden');
+    };
+}
 
 // ACCIÓN DEL BOTÓN CANCELAR EN EL MODAL DE SEGURIDAD
-securityCancelBtn.onclick = () => {
-    securityModal.classList.add('hidden'); // Cierra de forma segura para dejar al cliente revisar
-};
+if (securityCancelBtn) {
+    securityCancelBtn.onclick = () => {
+        if (securityModal) securityModal.classList.add('hidden');
+    };
+}
 
 // ACCIÓN DEL BOTÓN ACEPTAR EN EL MODAL DE SEGURIDAD
-securityConfirmBtn.onclick = () => {
-    securityModal.classList.add('hidden');
-    successModal.classList.remove('hidden'); // Transiciona al modal de datos del receptor
-};
+if (securityConfirmBtn) {
+    securityConfirmBtn.onclick = () => {
+        if (securityModal) securityModal.classList.add('hidden');
+        if (successModal) successModal.classList.remove('hidden');
+    };
+}
 
 // FINALIZAR HACIA WHATSAPP DESDE EL MODAL DE ÉXITO
-closeModalBtn.onclick = () => {
-    const name = document.getElementById('customer-name').value;
-    const phone = document.getElementById('customer-phone').value;
-    const state = document.getElementById('shipping-state').value;
-    const agency = document.getElementById('shipping-agency').value;
-    const bank = document.getElementById('payment-bank').value;
-    const ref = document.getElementById('payment-reference').value;
+if (closeModalBtn) {
+    closeModalBtn.onclick = () => {
+        const name = document.getElementById('customer-name')?.value || '';
+        const phone = document.getElementById('customer-phone')?.value || '';
+        const state = document.getElementById('shipping-state')?.value || '';
+        const agency = document.getElementById('shipping-agency')?.value || '';
+        const bank = document.getElementById('payment-bank')?.value || '';
+        const ref = document.getElementById('payment-reference')?.value || '';
 
-    let msg = `🌸 *NUEVO PEDIDO*\n\n`;
-    msg += `👤 *Cliente:* ${name}\n`;
-    msg += `📞 *Tel:* ${phone}\n\n`;
-    msg += `📦 *Agencia:* ${state} - ${agency}\n\n`;
-    msg += `💳 *Pago:* ${bank} (Ref: ${ref})\n`;
-    msg += `🖼️ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
-    msg += `🛒 *PRODUCTOS:*\n`;
-    
-    cart.forEach(item => {
-        msg += `- ${item.name} (x${item.quantity})\n`;
-    });
-    
-    msg += `\n💰 *TOTAL:* ${cartTotalAmount.textContent}`;
+        let msg = `🌸 *NUEVO PEDIDO*\n\n`;
+        msg += `👤 *Cliente:* ${name}\n`;
+        msg += `📞 *Tel:* ${phone}\n\n`;
+        msg += `📦 *Agencia:* ${state} - ${agency}\n\n`;
+        msg += `💳 *Pago:* ${bank} (Ref: ${ref})\n`;
+        msg += `🖼️ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
+        msg += `🛒 *PRODUCTOS:*\n`;
+        
+        cart.forEach(item => {
+            msg += `- ${item.name} (x${item.quantity})\n`;
+        });
+        
+        msg += `\n💰 *TOTAL:* ${cartTotalAmount?.textContent || '$0.00'}`;
 
-    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-    
-    // Resetear Estado de la Tienda por completo
-    cart = [];
-    checkoutForm.reset();
-    updateUI();
-    successModal.classList.add('hidden');
-};
+        const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
+        window.open(url, '_blank');
+        
+        // Resetear Estado de la Tienda por completo
+        cart = [];
+        if (checkoutForm) checkoutForm.reset();
+        updateUI();
+        if (successModal) successModal.classList.add('hidden');
+    };
+}
 
+// INICIALIZAR
 document.addEventListener('DOMContentLoaded', renderCatalog);
