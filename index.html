@@ -3,160 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puntadas de Papel - Tienda</title>
+    <title>Puntadas de Papel - El mejor regalo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="landing-page">
 
+    <!-- HEADER SIMPLE -->
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
+                <img src="imagenes/logo.png" alt="Puntadas de Papel" class="store-logo" onerror="this.style.display='none'">
                 <h1 class="logo-text">🌸 Puntadas de Papel</h1>
             </div>
+            <a href="tienda.html" class="cart-icon-btn">
+                🛍️ Ver todo el catálogo
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <span class="hero-badge">✨ Hecho con amor</span>
+            <h1 class="hero-title">El mejor regalo<br><span class="hero-highlight">hecho a mano</span></h1>
+            <p class="hero-subtitle">
+                Descubre creaciones únicas tejidas, perfumes, papelería y detalles 
+                que enamoran. Cada pieza está elaborada con dedicación para ti. 🌸
+            </p>
+            <div class="hero-buttons">
+                <a href="tienda.html" class="btn-hero-primary">🛍️ Explorar catálogo</a>
+                <a href="#categorias" class="btn-hero-secondary">Ver categorías</a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-emoji emoji-1">🧶</div>
+            <div class="floating-emoji emoji-2">🌸</div>
+            <div class="floating-emoji emoji-3">🎀</div>
+            <div class="floating-emoji emoji-4">💐</div>
+            <div class="floating-emoji emoji-5">📚</div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CATEGORÍAS -->
+    <section id="categorias" class="categories-section">
+        <div class="section-header">
+            <h2 class="landing-section-title">Explora nuestras categorías</h2>
+            <p class="section-subtitle">Encuentra el regalo perfecto para cada ocasión</p>
+        </div>
+
+        <div class="categories-grid">
             
-            <nav class="category-nav">
-                <a href="index.html" class="active">Todos</a>
+            <a href="tejido.html" class="category-card category-tejido">
+                <div class="category-icon">🧶</div>
+                <h3>Tejido</h3>
+                <p>Amigurumis, ropa y accesorios a crochet</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+            <a href="papeleria.html" class="category-card category-papeleria">
+                <div class="category-icon">📚</div>
+                <h3>Papelería</h3>
+                <p>Álbumes, figuritas y detalles creativos</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+            <a href="perfumes.html" class="category-card category-perfumes">
+                <div class="category-icon">🌹</div>
+                <h3>Perfumes</h3>
+                <p>Fragancias que enamoran y perduran</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+            <a href="flores.html" class="category-card category-flores">
+                <div class="category-icon">💐</div>
+                <h3>Flores</h3>
+                <p>Ramos y arreglos que nunca marchitan</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+            <a href="birretes.html" class="category-card category-birretes">
+                <div class="category-icon">🎓</div>
+                <h3>Birretes</h3>
+                <p>Personalizados para tu graduación</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+            <a href="tienda.html" class="category-card category-todos">
+                <div class="category-icon">✨</div>
+                <h3>Ver Todo</h3>
+                <p>Explora el catálogo completo</p>
+                <span class="category-link">Ver productos →</span>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="landing-section-title">¿Por qué elegirnos?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💝</div>
+                <h4>Hecho a mano</h4>
+                <p>Cada pieza es única y elaborada con dedicación</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h4>Envíos nacionales</h4>
+                <p>Enviamos por ZOOM y MRW a todo el país</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h4>Atención personalizada</h4>
+                <p>Te atendemos por WhatsApp para tu comodidad</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎁</div>
+                <h4>Regalos únicos</h4>
+                <p>Detalles especiales para sorprender a quien amas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Listo para regalar algo especial? 🌸</h2>
+            <p>Explora nuestro catálogo y encuentra el detalle perfecto</p>
+            <a href="tienda.html" class="btn-hero-primary">Comenzar a comprar 🛍️</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>🌸 Puntadas de Papel</h4>
+                <p>El mejor regalo hecho a mano</p>
+            </div>
+            <div class="footer-col">
+                <h4>Categorías</h4>
                 <a href="tejido.html">Tejido</a>
                 <a href="papeleria.html">Papelería</a>
                 <a href="perfumes.html">Perfumes</a>
                 <a href="flores.html">Flores</a>
                 <a href="birretes.html">Birretes</a>
-            </nav>
-
-            <a href="#cart-section" class="cart-icon-btn">
-                🛒 (<span id="cart-count">0</span>)
-            </a>
-        </div>
-    </header>
-
-    <main class="store-container">
-        <section class="catalog-section">
-            <h2 class="section-title">Dulces Creaciones</h2>
-            <div id="products-grid" class="products-grid"></div>
-        </section>
-
-        <aside class="checkout-sidebar">
-            <section id="cart-section" class="cart-section">
-                <h2 class="section-title">Tu Pedido</h2>
-                <div id="cart-items-container" class="cart-items-container">
-                    <p class="empty-cart-msg">Aún no hay tesoros en tu carrito.</p>
-                </div>
-                <div class="cart-total-box">
-                    <span>Total:</span>
-                    <span id="cart-total-amount">$0.00</span>
-                </div>
-            </section>
-
-            <section id="checkout-section" class="checkout-section hidden">
-                <h2 class="section-title">Finalizar Compra</h2>
-                <form id="checkout-form" class="checkout-form">
-                    <fieldset>
-                        <legend>🌸 Tus Datos</legend>
-                        <div class="form-group">
-                            <label>Nombre Completo</label>
-                            <input type="text" id="customer-name" required placeholder="Tu nombre">
-                        </div>
-                        <div class="form-group">
-                            <label>Cédula / RIF</label>
-                            <input type="text" id="customer-id" required placeholder="V-00000000">
-                        </div>
-                        <div class="form-group">
-                            <label>Teléfono</label>
-                            <input type="tel" id="customer-phone" required placeholder="0414-0000000">
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>📦 Envío por agencia (ZOOM/MRW)</legend>
-                        <div class="form-group">
-                            <label>Estado</label>
-                            <input type="text" id="shipping-state" required placeholder="Miranda">
-                        </div>
-                        <div class="form-group">
-                            <label>Ciudad</label>
-                            <input type="text" id="shipping-city" required placeholder="Caracas">
-                        </div>
-                        <div class="form-group">
-                            <label>Agencia específica</label>
-                            <input type="text" id="shipping-agency" required placeholder="Agencia Las Mercedes">
-                        </div>
-                    </fieldset>
-
-                    <button type="submit" class="btn-submit-order">Confirmar por WhatsApp</button>
-                </form>
-            </section>
-        </aside>
-    </main>
-
-    <!-- MODALES -->
-    <div id="product-detail-modal" class="modal-overlay hidden">
-        <div class="modal-content product-popout">
-            <button id="close-detail-btn" class="close-popout-btn">×</button>
-            <div class="popout-layout">
-                <div class="popout-gallery">
-                    <img id="popout-main-img" src="" alt="Producto" class="popout-large-img">
-                    <div id="popout-thumbnails" class="popout-thumbnails"></div>
-                </div>
-                <div class="popout-info">
-                    <span id="popout-category" class="product-category-tag">Categoría</span>
-                    <h2 id="popout-name">Nombre del Producto</h2>
-                    <p id="popout-price" class="popout-price">$0.00</p>
-                    <div class="popout-description-box">
-                        <h4>Descripción:</h4>
-                        <p id="popout-description">Aquí irán los detalles...</p>
-                    </div>
-                    <button id="popout-add-btn" class="btn-submit-order">Añadir al carrito 🌸</button>
-                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>📱 WhatsApp: 0414-7429116</p>
+                <p>💳 Pago móvil / Transferencia</p>
             </div>
         </div>
-    </div>
-
-    <div id="security-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="modal-icon">⚠️</div>
-            <h2>¿Confirmar tu compra?</h2>
-            <p>Por favor, asegúrate de que todos tus datos e ítems del pedido sean correctos antes de continuar.</p>
-            <div class="security-actions">
-                <button id="security-cancel-btn" class="btn-secondary-modal">Cancelar y revisar</button>
-                <button id="security-confirm-btn" class="btn-primary-modal">Aceptar y continuar</button>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2026 Puntadas de Papel. Hecho con 💖</p>
         </div>
-    </div>
+    </footer>
 
-    <div id="success-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <div class="modal-icon">🌸</div>
-            <h2>¡Casi listo!</h2>
-            <p>Para procesar tu envío rápido, recuerda que el pago debe realizarse a:</p>
-            <div class="receiver-data-modal">
-                <p><strong>Banco:</strong> Banco de Venezuela - 0102</p>
-                <p><strong>Teléfono:</strong> 0414-7429116</p>
-                <p><strong>RIF:</strong> V-32195433</p>
-            </div>
-            <fieldset>
-                <legend>💳 Comprobante de Pago</legend>
-                <div class="form-group">
-                    <label>Banco Emisor</label>
-                    <input type="text" id="payment-bank" required>
-                </div>
-                <div class="form-group">
-                    <label>Número de Referencia</label>
-                    <input type="text" id="payment-reference" required>
-                </div>
-                <div class="form-group">
-                    <label>Subir Captura *</label>
-                    <input type="file" id="payment-screenshot" accept="image/*" required class="file-input">
-                    <small>Sube la imagen de tu transferencia o pago móvil.</small>
-                </div>
-            </fieldset>
-            <p class="modal-instruction">Al presionar "Enviar", se abrirá WhatsApp. <b>No olvides adjuntar la imagen del pago manualmente</b> en el chat.</p>
-            <button id="close-modal-btn" class="btn-close-modal">Enviar Pedido</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

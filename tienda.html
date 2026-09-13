@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puntadas de Papel - Papelería</title>
+    <title>Puntadas de Papel - Catálogo Completo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
@@ -12,16 +12,17 @@
 <body>
 
     <header class="main-header">
-        <div class="header-container">
-            <div class="logo-container">
+        <div class="logo-container">
+            <a href="index.html" style="text-decoration:none; display:flex; align-items:center; gap:15px;">
                 <h1 class="logo-text">🌸 Puntadas de Papel</h1>
-            </div>
+            </a>
+         </div>
             
             <nav class="category-nav">
                 <a href="index.html">Inicio</a>
-                <a href="tienda.html">Todos</a>
+                <a href="tienda.html" class="active">Todos</a>
                 <a href="tejido.html">Tejido</a>
-                <a href="papeleria.html" class="active">Papelería</a>
+                <a href="papeleria.html">Papelería</a>
                 <a href="perfumes.html">Perfumes</a>
                 <a href="flores.html">Flores</a>
                 <a href="birretes.html">Birretes</a>
@@ -35,12 +36,11 @@
 
     <main class="store-container">
         <section class="catalog-section">
-            <h2 class="section-title">Papelería 📚</h2>
+            <h2 class="section-title">Dulces Creaciones</h2>
             <div id="products-grid" class="products-grid"></div>
         </section>
 
         <aside class="checkout-sidebar">
-            <!-- Mismo carrito y checkout que en index.html -->
             <section id="cart-section" class="cart-section">
                 <h2 class="section-title">Tu Pedido</h2>
                 <div id="cart-items-container" class="cart-items-container">
@@ -93,7 +93,7 @@
         </aside>
     </main>
 
-    <!-- MODALES (mismos que index.html) -->
+    <!-- MODALES -->
     <div id="product-detail-modal" class="modal-overlay hidden">
         <div class="modal-content product-popout">
             <button id="close-detail-btn" class="close-popout-btn">×</button>

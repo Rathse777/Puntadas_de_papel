@@ -169,7 +169,8 @@ function getCategoryFromURL() {
     const page = path.split('/').pop();
     
     const categoryMap = {
-        'index.html': 'Todos',
+        'index.html': 'Inicio',
+        'tienda.html': 'Todos',
         'tejido.html': 'Tejido',
         'papeleria.html': 'Papelería',
         'perfumes.html': 'Perfumes',
@@ -186,7 +187,9 @@ function renderCatalog() {
     
     const currentCategory = getCategoryFromURL();
     
-    // Si es "Todos", mostrar todos los productos
+    // Si estamos en la landing, no renderizar nada
+    if (currentCategory === 'Landing') return;
+    
     const filteredProducts = currentCategory === 'Todos'
         ? PRODUCTS
         : PRODUCTS.filter(p => p.category === currentCategory);
