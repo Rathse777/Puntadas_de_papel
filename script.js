@@ -5,7 +5,7 @@ const PRODUCTS = [
         name: "Guantes de patas de gatito tejidos para jóvenes",
         price: 7.00,
         category: "Tejido",
-        description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color negro, crema, blanco y rosa.",
+        description: "Guantes hechos de estambre acrílico suave y semi-elástica de excelente calidad. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Pídalos con una semana de anticipación y pregunte por colores disponibles.",
         images: [
             "imagenes/GuantesNegros.png",
             "imagenes/GuantesBlancos.png",
@@ -17,7 +17,7 @@ const PRODUCTS = [
         name: "Guantes de patas de gatito tejidos para niñas",
         price: 4.00,
         category: "Tejido",
-        description: "Guantes hechos de estambre acrílico suave y elástica de excelente calce. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Disponible en color blanco y rosa.",
+        description: "Guantes hechos de estambre acrílico suave. Para manos pequeñas de niñas, perfecta para climas frescos. Pídalos con una semana de anticipación y pregunte por colores disponibles.",
         images: [
             "imagenes/GuantesRosas.png",
             "imagenes/GuantesRosasPuestos1.jpeg",
@@ -50,43 +50,31 @@ const PRODUCTS = [
     },
     {
         id: 5,
-        name: "Top Tejido Rosa Pastel",
-        price: 30.00,
+        name: "Gorro con orejas de gatito tejido",
+        price: 20.00,
         category: "Tejido",
         description: "Prenda de punto suave y elástica de excelente calce. Ajustable en la espalda, perfecta para climas frescos o looks veraniegos coquetos.",
         images: [
-            "imagenes/toprosa1.png",
-            "imagenes/toprosa2.png",
-            "imagenes/toprosa3.png"
+            "imagenes/GorrodeGatito1.png",
+            "imagenes/GorrodeGatito2.png",
+            "imagenes/GorrodeGatito3.png"
         ]
     },
     {
         id: 6,
         name: "Conejo Amigurumi",
-        price: 15.00,
+        price: 10.00,
         category: "Tejido",
         description: "Un tierno compañero tejido con la técnica amigurumi. Relleno suave y esponjoso con ojos de seguridad. El regalo perfecto para cualquier edad.",
         images: [
             "imagenes/conejo1.png",
-            "imagenes/conejo2.png",
-            "imagenes/conejo3.png"
+            "imagenes/conejo2.png"
         ]
     },
-    {
-        id: 7,
-        name: "Cartera Lavanda",
-        price: 22.50,
-        category: "Bolsos y Accesorios",
-        description: "Hecha 100% a mano con cuerina y forro de seda. Ideal para salidas casuales. Súper espaciosa, forrada por dentro y con broche imantado para máxima seguridad.",
-        images: [
-            "imagenes/cartera1.png",
-            "imagenes/cartera2.png",
-            "imagenes/cartera3.png"
-        ]
-    },
+
     // ========== NUEVOS PRODUCTOS PARA PERFUMES ==========
     {
-        id: 8,
+        id: 7,
         name: "Perfume Floral Encanto",
         price: 35.00,
         category: "Perfumes",
@@ -98,7 +86,7 @@ const PRODUCTS = [
         ]
     },
     {
-        id: 9,
+        id: 8,
         name: "Perfume Misterio Nocturno",
         price: 45.00,
         category: "Perfumes",
@@ -111,7 +99,7 @@ const PRODUCTS = [
     },
     // ========== NUEVOS PRODUCTOS PARA FLORES ==========
     {
-        id: 10,
+        id: 9,
         name: "Ramo de Rosas Eternas",
         price: 25.00,
         category: "Flores",
@@ -123,7 +111,7 @@ const PRODUCTS = [
         ]
     },
     {
-        id: 11,
+        id: 10,
         name: "Arreglo Floral Primavera",
         price: 30.00,
         category: "Flores",
@@ -136,7 +124,7 @@ const PRODUCTS = [
     },
     // ========== NUEVOS PRODUCTOS PARA BIRRETES ==========
     {
-        id: 12,
+        id: 11,
         name: "Birrete Personalizado",
         price: 18.00,
         category: "Birretes",
@@ -148,7 +136,7 @@ const PRODUCTS = [
         ]
     },
     {
-        id: 13,
+        id: 12,
         name: "Birrete con Borla Dorada",
         price: 22.00,
         category: "Birretes",
