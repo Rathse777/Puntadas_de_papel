@@ -9,7 +9,7 @@ const PRODUCTS = [
         images: [
             "imagenes/GuantesNegros.png",
             "imagenes/GuantesBlancos.png",
-            "imagenes/GuantesBlancosyNegros.jpeg"
+            "imagenes/GuantesBlancosyNegros.jpg"
         ]
     },
     {
@@ -20,8 +20,8 @@ const PRODUCTS = [
         description: "Guantes hechos de estambre acrílico suave. Para manos pequeñas de niñas, perfecta para climas frescos. Pídalos con una semana de anticipación y pregunte por colores disponibles.",
         images: [
             "imagenes/GuantesRosas.png",
-            "imagenes/GuantesRosasPuestos1.jpeg",
-            "imagenes/GuantesRosasPuestos2.jpeg"
+            "imagenes/GuantesRosasPuestos1.jpg",
+            "imagenes/GuantesRosasPuestos2.jpg"
         ]
     },
     {
@@ -55,9 +55,9 @@ const PRODUCTS = [
         category: "Tejido",
         description: "Gorro de punto suave y semi-elástica de excelente calidad. Con orejas de gatito y adornos metalizados para un look coqueto, perfecta para climas fríos.",
         images: [
-            "imagenes/GorrodeGatito1.png",
-            "imagenes/GorrodeGatito2.png",
-            "imagenes/GorrodeGatito3.png"
+            "imagenes/GorrodeGatito1.jpg",
+            "imagenes/GorrodeGatito2.jpg",
+            "imagenes/GorrodeGatito3.jpg"
         ]
     },
     {
@@ -67,8 +67,8 @@ const PRODUCTS = [
         category: "Tejido",
         description: "Un tierno compañero tejido con la técnica amigurumi. Relleno suave y esponjoso con ojos de seguridad. El regalo perfecto para cualquier edad.",
         images: [
-            "imagenes/conejo1.png",
-            "imagenes/conejo2.png"
+            "imagenes/conejo1.jpg",
+            "imagenes/conejo2.jpg"
         ]
     },
 
@@ -80,9 +80,9 @@ const PRODUCTS = [
         category: "Perfumes",
         description: "Fragancia floral con notas de jazmín, rosa y un toque de vainilla. Perfecto para el día a día.",
         images: [
-            "imagenes/perfume1.png",
-            "imagenes/perfume2.png",
-            "imagenes/perfume3.png"
+            "imagenes/perfume1.jpg",
+            "imagenes/perfume2.jpg",
+            "imagenes/perfume3.jpg"
         ]
     },
     {
@@ -92,9 +92,9 @@ const PRODUCTS = [
         category: "Perfumes",
         description: "Aroma intenso con notas de sándalo, ámbar y bergamota. Ideal para ocasiones especiales.",
         images: [
-            "imagenes/perfume4.png",
-            "imagenes/perfume5.png",
-            "imagenes/perfume6.png"
+            "imagenes/perfume4.jpg",
+            "imagenes/perfume5.jpg",
+            "imagenes/perfume6.jpg"
         ]
     },
     // ========== NUEVOS PRODUCTOS PARA FLORES ==========
