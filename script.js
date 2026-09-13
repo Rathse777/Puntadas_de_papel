@@ -53,7 +53,7 @@ const PRODUCTS = [
         name: "Gorro con orejas de gatito tejido",
         price: 20.00,
         category: "Tejido",
-        description: "Prenda de punto suave y elástica de excelente calce. Ajustable en la espalda, perfecta para climas frescos o looks veraniegos coquetos.",
+        description: "Gorro de punto suave y semi-elástica de excelente calidad. Con orejas de gatito y adornos metalizados para un look coqueto, perfecta para climas fríos.",
         images: [
             "imagenes/GorrodeGatito1.png",
             "imagenes/GorrodeGatito2.png",
