@@ -214,14 +214,6 @@ function renderCatalog() {
         `;
         productsGrid.appendChild(div);
     });
-
-    // Actualizar el título de la sección
-    const sectionTitle = document.querySelector('.section-title');
-    if (sectionTitle) {
-        sectionTitle.textContent = currentCategory === 'Todos' 
-            ? 'Dulces Creaciones' 
-            : `${currentCategory} 🌸`;
-    }
 }
 
 // ============================================================
