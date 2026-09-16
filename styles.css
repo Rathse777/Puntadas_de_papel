@@ -1,59 +1,53 @@
 /* ==========================================================================
-   PALETA MEDIEVAL REAL - CASTILLO, PERGAMINO Y ORO
+   RVJ — PALETA REALEZA ANTIGUA, LITERATURA Y AESTHETIC
    ========================================================================== */
 :root {
-    /* Fondos principales - Piedra y pergamino */
-    --stone-bg: #e8e0d5;
-    --stone-light: #f2ebe0;
-    --stone-medium: #d4c8b8;
-    --stone-dark: #b8a898;
+    /* Fondos principales — pergamino y vitela */
+    --pearl-bg: #f7f3ec;
+    --pearl-light: #f2ece1;
+    --pearl-medium: #e8dfd0;
     
-    /* Tonos pergamino */
-    --parchment: #f5ecd7;
-    --parchment-dark: #e8dcc0;
-    --parchment-aged: #ddd0b8;
-    
-    /* Tonos dorados reales */
-    --gold-light: #f5e6c8;
+    /* Tonos dorados antiguos */
+    --gold-light: #e6d3a3;
     --gold-medium: #c9a227;
-    --gold-dark: #a67c00;
-    --gold-deep: #7a5c00;
-    --gold-bright: #ffd700;
+    --gold-dark: #a8841a;
+    --gold-deep: #6b5210;
     
-    /* Tonos borgoña y reales */
-    --royal-red: #722f37;
-    --royal-red-dark: #4a1f24;
-    --royal-purple: #4a2c5a;
-    --royal-blue: #1e3a5f;
-    --royal-green: #2d4a3e;
+    /* Tonos nobles — borgoña y azul profundo */
+    --royal-burgundy: #6b1f2a;
+    --royal-burgundy-light: #8a2e3b;
+    --royal-navy: #1e2a4a;
+    --royal-navy-light: #2d3d63;
+    --royal-purple: #3d2b4a;
     
-    /* Tonos hierro y bronce */
-    --iron-light: #8a8a8a;
-    --iron-medium: #5a5a5a;
-    --iron-dark: #3a3a3a;
-    --bronze: #cd7f32;
+    /* Tonos plateados y nacarados */
+    --silver-light: #e4e0d8;
+    --silver-medium: #b8b0a0;
+    --silver-dark: #8a8274;
+    --silver-deep: #5a5448;
     
     /* Texto */
-    --text-color: #2c2418;
-    --text-light: #5a4a3a;
-    --text-gold: #7a5c00;
+    --text-color: #2a241c;
+    --text-light: #5a5244;
+    --text-gold: #8b6914;
     
     /* UI */
-    --bg-white: #faf6ee;
+    --bg-white: #fefcf8;
     --radius: 8px;
-    --shadow: 0 4px 15px rgba(60, 40, 20, 0.2);
-    --shadow-gold: 0 4px 20px rgba(201, 162, 39, 0.3);
-    --shadow-deep: 0 8px 30px rgba(40, 25, 10, 0.3);
+    --shadow: 0 8px 20px -6px rgba(90, 70, 40, 0.15);
+    --shadow-gold: 0 6px 20px rgba(201, 162, 39, 0.18);
+    --shadow-royal: 0 10px 30px rgba(30, 42, 74, 0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Quicksand', sans-serif;
-    background-color: var(--stone-bg);
-    background-image: 
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8a898' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Cormorant Garamond', 'Quicksand', serif;
+    background-color: var(--pearl-bg);
     color: var(--text-color);
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(201, 162, 39, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 31, 42, 0.04) 0%, transparent 50%);
 }
 
 h1, h2, h3, h4, .logo-text {
@@ -62,23 +56,16 @@ h1, h2, h3, h4, .logo-text {
 }
 
 /* ==========================================================================
-   HEADER - PORTÓN DEL CASTILLO
+   HEADER Y LOGO — ESTILO REALEZA
    ========================================================================== */
 .main-header {
-    background: linear-gradient(180deg, 
-        var(--royal-red-dark) 0%, 
-        var(--royal-red) 30%, 
-        #8b3a42 70%, 
-        var(--royal-red-dark) 100%);
-    padding: 1rem;
-    border-bottom: 4px solid var(--gold-medium);
+    background: linear-gradient(135deg, #fefcf8 0%, #f7f3ec 100%);
+    padding: 1rem 1.2rem;
+    border-bottom: 3px double var(--gold-medium);
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 
-        0 4px 20px rgba(40, 20, 10, 0.4),
-        inset 0 -2px 10px rgba(0,0,0,0.3),
-        inset 0 2px 10px rgba(255,215,0,0.1);
+    box-shadow: 0 2px 20px rgba(90, 70, 40, 0.08);
 }
 
 .header-container {
@@ -87,49 +74,56 @@ h1, h2, h3, h4, .logo-text {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .logo-container { display: flex; align-items: center; gap: 15px; }
-.store-logo { max-height: 60px; width: auto; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)); }
+
+.store-logo { max-height: 60px; width: auto; }
 
 .logo-text { 
     font-size: 1.6rem; 
-    color: var(--gold-bright);
-    text-shadow: 
-        2px 2px 0 var(--gold-deep),
-        0 0 20px rgba(255, 215, 0, 0.3);
+    color: var(--royal-burgundy); 
     font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 rgba(201, 162, 39, 0.2);
+}
+
+.logo-text .rvj-mark {
+    color: var(--gold-dark);
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--gold-medium);
+    padding-bottom: 2px;
 }
 
 .cart-icon-btn {
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
-    padding: 0.8rem 1.4rem;
-    border-radius: 8px;
+    background: linear-gradient(135deg, var(--gold-light), #f2e8d0);
+    color: var(--royal-burgundy);
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    border: 2px solid var(--gold-light);
+    border: 2px solid var(--gold-medium);
     transition: 0.3s;
-    box-shadow: 
-        0 4px 15px rgba(201, 162, 39, 0.4),
-        inset 0 1px 0 rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    font-size: 0.85rem;
+    box-shadow: var(--shadow-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
     letter-spacing: 1px;
 }
-
 .cart-icon-btn:hover { 
-    background: linear-gradient(135deg, var(--gold-bright), var(--gold-medium));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
+    color: white; 
+    border-color: var(--gold-deep);
 }
 
 /* ==========================================================================
-   NAVEGACIÓN - SALONES DEL CASTILLO
+   NAVEGACIÓN POR CATEGORÍAS — ESTILO CLÁSICO
    ========================================================================== */
 .category-nav {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
@@ -137,51 +131,33 @@ h1, h2, h3, h4, .logo-text {
 
 .category-nav a {
     text-decoration: none;
-    color: var(--gold-light);
+    color: var(--text-light);
     font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 8px 14px;
+    border-radius: 4px;
     transition: all 0.3s ease;
     font-size: 0.85rem;
     background: transparent;
-    border: 2px solid transparent;
-    text-transform: uppercase;
+    border: 1px solid transparent;
+    font-family: 'Cinzel', serif;
     letter-spacing: 0.5px;
-    position: relative;
-}
-
-.category-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: var(--gold-bright);
-    transition: transform 0.3s ease;
 }
 
 .category-nav a:hover {
-    background: rgba(201, 162, 39, 0.2);
-    color: var(--gold-bright);
-    border-color: var(--gold-medium);
-}
-
-.category-nav a:hover::after {
-    transform: translateX(-50%) scaleX(1);
+    background: linear-gradient(135deg, #f2ece1, #e8dfd0);
+    color: var(--royal-burgundy);
+    border-color: var(--gold-light);
 }
 
 .category-nav a.active {
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
-    border-color: var(--gold-light);
-    box-shadow: 0 3px 15px rgba(201, 162, 39, 0.4);
-    font-weight: 700;
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light));
+    color: var(--gold-light);
+    border-color: var(--gold-medium);
+    box-shadow: 0 4px 15px rgba(107, 31, 42, 0.25);
 }
 
 /* ==========================================================================
-   GRID DE PRODUCTOS - TESOROS DEL REINO
+   GRID DE PRODUCTOS — TARJETAS ELEGANTES
    ========================================================================== */
 .store-container {
     max-width: 1200px;
@@ -197,69 +173,61 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .section-title { 
-    color: var(--gold-deep); 
-    margin-bottom: 1.5rem; 
+    color: var(--royal-burgundy); 
+    margin-bottom: 1.8rem; 
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     position: relative;
-    padding-bottom: 15px;
-    text-transform: uppercase;
+    padding-bottom: 12px;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .section-title::after {
-    content: '⚜';
+    content: '✦ ✦ ✦';
     position: absolute;
-    bottom: -10px;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1.2rem;
     color: var(--gold-medium);
-    background: var(--stone-bg);
-    padding: 0 15px;
-}
-
-.section-title::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--gold-medium), transparent);
+    font-size: 0.6rem;
+    letter-spacing: 8px;
+    background: var(--pearl-bg);
+    padding: 0 10px;
 }
 
 .products-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); 
-    gap: 25px; 
+    gap: 22px; 
 }
 
 .product-card {
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    background: var(--bg-white);
     border-radius: var(--radius);
-    padding: 18px;
-    border: 3px solid var(--stone-dark);
+    padding: 16px;
+    border: 1px solid var(--silver-light);
     transition: 0.3s ease;
-    box-shadow: 
-        var(--shadow),
-        inset 0 0 30px rgba(201, 162, 39, 0.05);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 }
 
 .product-card::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 1px solid rgba(201, 162, 39, 0.3);
-    border-radius: 4px;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-medium), var(--royal-burgundy), var(--gold-medium));
+    opacity: 0;
+    transition: opacity 0.3s;
 }
+
+.product-card:hover::before { opacity: 1; }
 
 .product-card-clickable {
     cursor: pointer;
@@ -267,113 +235,88 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .product-card:hover { 
-    transform: translateY(-5px); 
+    transform: translateY(-6px); 
     border-color: var(--gold-medium); 
-    box-shadow: 
-        var(--shadow-gold),
-        0 10px 30px rgba(201, 162, 39, 0.2);
+    box-shadow: var(--shadow-royal);
 }
 
 .product-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 4px;
     margin-bottom: 1rem;
-    border: 2px solid var(--stone-medium);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    border: 1px solid var(--silver-light);
 }
 
 .product-card-category { 
-    font-size: 0.75rem; 
+    font-size: 0.7rem; 
     color: var(--gold-dark); 
     font-weight: 700; 
     text-transform: uppercase;
     letter-spacing: 2px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.product-card-category::before {
-    content: '◆';
-    font-size: 0.6rem;
+    font-family: 'Cinzel', serif;
 }
 
 .product-name { 
     font-size: 1.05rem; 
     margin-bottom: 0.5rem; 
-    color: var(--text-color);
-    font-family: 'Cinzel', serif;
+    color: var(--text-color); 
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
 }
 
 .product-price { 
-    color: var(--gold-dark); 
+    color: var(--royal-burgundy); 
     font-weight: 700; 
-    font-size: 1.3rem; 
+    font-size: 1.2rem; 
     margin-bottom: 1rem;
     font-family: 'Cinzel', serif;
 }
 
-.product-price::before {
-    content: '⚜ ';
-    font-size: 0.9rem;
-}
-
 .btn-add-cart {
     width: 100%;
-    padding: 0.9rem;
-    background: linear-gradient(135deg, var(--stone-medium), var(--stone-light));
-    border: 2px solid var(--stone-dark);
-    border-radius: 6px;
-    color: var(--text-color);
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light));
+    border: 2px solid var(--gold-medium);
+    border-radius: 4px;
+    color: var(--gold-light);
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s;
     margin-top: auto;
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
     letter-spacing: 1px;
-    font-size: 0.8rem;
-    position: relative;
-    overflow: hidden;
 }
-
-.btn-add-cart::before {
-    content: '🛡️ ';
-    font-size: 0.9rem;
-}
-
 .btn-add-cart:hover { 
     background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark); 
-    border-color: var(--gold-light);
-    box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+    color: var(--royal-burgundy);
+    border-color: var(--gold-deep);
 }
 
 /* ==========================================================================
-   CARRITO - COFRE DEL TESORO
+   CARRITO Y CHECKOUT — ESTILO NOBLE
    ========================================================================== */
 .cart-section, .checkout-section {
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    background: var(--bg-white);
     border-radius: var(--radius);
-    padding: 25px;
+    padding: 22px;
     margin-bottom: 20px;
-    border: 3px solid var(--stone-dark);
-    box-shadow: var(--shadow-deep);
+    border: 1px solid var(--silver-light);
+    box-shadow: var(--shadow-royal);
     position: relative;
 }
 
-.cart-section::before,
-.checkout-section::before {
+.cart-section::before, .checkout-section::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    border: 1px solid rgba(201, 162, 39, 0.3);
-    border-radius: 4px;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold-medium), var(--royal-burgundy), var(--gold-medium));
+    border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .cart-item-row {
@@ -381,67 +324,60 @@ h1, h2, h3, h4, .logo-text {
     justify-content: space-between; 
     align-items: center; 
     margin-bottom: 12px; 
-    border-bottom: 1px dashed var(--stone-dark); 
+    border-bottom: 1px dashed var(--silver-medium); 
     padding: 10px 0;
+    font-size: 0.95rem;
 }
 
 .btn-delete-item {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 0 5px;
     transition: transform 0.2s;
+    color: var(--royal-burgundy);
 }
 
 .btn-delete-item:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
 }
 
-/* ==========================================================================
-   FORMULARIOS - PERGAMINOS REALES
-   ========================================================================== */
 .checkout-form fieldset { 
-    border: 2px solid var(--stone-dark); 
-    padding: 20px; 
-    border-radius: 8px; 
-    margin-bottom: 20px; 
-    background: rgba(255, 255, 255, 0.3);
-    position: relative;
+    border: 1px solid var(--silver-light); 
+    padding: 18px; 
+    border-radius: 6px; 
+    margin-bottom: 18px; 
 }
 
 .checkout-form legend { 
-    padding: 0 15px; 
+    padding: 0 12px; 
     font-weight: 700; 
-    color: var(--gold-deep);
+    color: var(--royal-burgundy); 
     font-family: 'Cinzel', serif;
     font-size: 0.9rem;
-    text-transform: uppercase;
     letter-spacing: 1px;
-    background: var(--parchment);
-    border: 2px solid var(--gold-medium);
-    border-radius: 20px;
-    padding: 5px 15px;
 }
 
 .form-group label { 
     display: block; 
     margin-bottom: 6px; 
     font-size: 0.85rem; 
-    font-weight: 600;
+    font-weight: 600; 
     color: var(--text-light);
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
     letter-spacing: 0.5px;
 }
 
 .form-group input {
     width: 100%; 
-    padding: 12px; 
-    border-radius: 6px; 
-    border: 2px solid var(--stone-medium); 
-    background: var(--bg-white); 
+    padding: 10px 12px; 
+    border-radius: 4px; 
+    border: 1px solid var(--silver-medium);
+    background: var(--pearl-bg); 
     margin-bottom: 12px; 
-    font-family: inherit;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
     transition: 0.3s;
     color: var(--text-color);
 }
@@ -449,84 +385,69 @@ h1, h2, h3, h4, .logo-text {
 .form-group input:focus {
     outline: none;
     border-color: var(--gold-medium);
-    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
-    background: var(--parchment);
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+    background: white;
 }
 
-.file-input { 
-    background: var(--bg-white) !important; 
-    border: 2px dashed var(--gold-medium) !important; 
-}
+.file-input { background: white !important; border: 1px dashed var(--gold-medium) !important; }
 
 .btn-submit-order {
     width: 100%; 
-    padding: 1.2rem; 
-    background: linear-gradient(135deg, var(--royal-red), var(--royal-red-dark)); 
+    padding: 1rem; 
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light)); 
     color: var(--gold-light);
     border: 2px solid var(--gold-medium); 
-    border-radius: 8px; 
+    border-radius: 4px; 
     font-size: 1rem; 
     font-weight: 700; 
     cursor: pointer;
-    box-shadow: 
-        0 5px 20px rgba(114, 47, 55, 0.4),
-        inset 0 1px 0 rgba(255,255,255,0.1); 
+    box-shadow: 0 5px 15px rgba(107, 31, 42, 0.25); 
     transition: 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
     font-family: 'Cinzel', serif;
-    position: relative;
-    overflow: hidden;
+    letter-spacing: 1px;
 }
-
-.btn-submit-order::before {
-    content: '⚜ ';
-}
-
 .btn-submit-order:hover { 
     background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
+    color: var(--royal-burgundy);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(201, 162, 39, 0.5);
+    box-shadow: 0 8px 25px rgba(201, 162, 39, 0.35);
+}
+
+.cart-total-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 5px;
+    border-top: 2px solid var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--royal-burgundy);
+    font-size: 1.1rem;
 }
 
 /* ==========================================================================
-   MODAL DETALLES - CÁMARA DEL TESORO
+   MODAL DE DETALLES — ESTILO BIBLIOTECA ANTIGUA
    ========================================================================== */
 .product-popout {
     max-width: 800px !important;
     width: 90% !important;
     position: relative;
     padding: 35px !important;
-    border-radius: var(--radius) !important;
+    border-radius: 8px !important;
     text-align: left !important;
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
-    border: 4px solid var(--gold-medium);
-    box-shadow: 
-        0 25px 50px rgba(40, 20, 10, 0.4),
-        inset 0 0 50px rgba(201, 162, 39, 0.1);
-}
-
-.product-popout::before {
-    content: '⚜';
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    color: var(--gold-medium);
-    background: var(--parchment);
-    padding: 0 15px;
+    background: linear-gradient(135deg, #fefcf8 0%, #f7f3ec 100%);
+    border: 2px solid var(--gold-medium) !important;
+    box-shadow: 0 25px 50px rgba(30, 42, 74, 0.25) !important;
 }
 
 .close-popout-btn {
     position: absolute;
     top: 15px;
-    right: 20px;
-    background: linear-gradient(135deg, var(--royal-red), var(--royal-red-dark));
-    border: 2px solid var(--gold-medium);
-    font-size: 1.5rem;
-    color: var(--gold-light);
+    right: 18px;
+    background: transparent;
+    border: 2px solid var(--silver-medium);
+    font-size: 1.8rem;
+    color: var(--royal-burgundy);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -535,20 +456,21 @@ h1, h2, h3, h4, .logo-text {
     align-items: center;
     justify-content: center;
     transition: 0.3s;
-    font-family: serif;
+    font-family: 'Cinzel', serif;
+    line-height: 1;
 }
-
 .close-popout-btn:hover { 
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark); 
+    background: var(--royal-burgundy);
+    color: var(--gold-light); 
+    border-color: var(--gold-medium);
     transform: rotate(90deg);
 }
 
 .popout-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 28px;
+    margin-top: 15px;
 }
 
 @media (min-width: 768px) {
@@ -559,15 +481,15 @@ h1, h2, h3, h4, .logo-text {
     width: 100%;
     height: 320px;
     object-fit: cover;
-    border-radius: 8px;
-    border: 3px solid var(--stone-dark);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    border: 2px solid var(--gold-light);
+    box-shadow: var(--shadow);
 }
 
 .popout-thumbnails {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 12px;
     overflow-x: auto;
     padding-bottom: 5px;
 }
@@ -576,214 +498,232 @@ h1, h2, h3, h4, .logo-text {
     width: 65px;
     height: 65px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
-    border: 2px solid var(--stone-medium);
+    border: 2px solid var(--silver-light);
     transition: 0.2s;
 }
-
 .thumb-img:hover, .thumb-img.active { 
     border-color: var(--gold-medium); 
-    transform: scale(1.08); 
+    transform: scale(1.05); 
     box-shadow: var(--shadow-gold);
 }
 
 .product-category-tag {
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light));
+    color: var(--gold-light);
+    padding: 5px 14px;
+    border-radius: 3px;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    display: inline-block;
+    border: 1px solid var(--gold-medium);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1.5px;
 }
 
 .popout-info h2 { 
     font-size: 1.5rem; 
-    margin: 12px 0 8px 0; 
-    color: var(--text-color);
+    margin: 12px 0 6px 0; 
+    color: var(--royal-burgundy); 
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
 
 .popout-price { 
-    font-size: 1.6rem; 
+    font-size: 1.4rem; 
     font-weight: 700; 
     color: var(--gold-dark); 
-    margin-bottom: 18px;
+    margin-bottom: 18px; 
     font-family: 'Cinzel', serif;
 }
 
-.popout-price::before {
-    content: '⚜ ';
-    font-size: 1rem;
-}
-
 .popout-description-box { 
-    margin-bottom: 20px; 
-    background: rgba(255, 255, 255, 0.4); 
+    margin-bottom: 22px; 
+    background: linear-gradient(135deg, #f7f3ec, #f2ece1); 
     padding: 18px; 
-    border-radius: 8px;
-    border: 1px solid var(--stone-medium);
+    border-radius: 6px;
+    border-left: 4px solid var(--gold-medium);
+    border-top: 1px solid var(--silver-light);
+    border-right: 1px solid var(--silver-light);
+    border-bottom: 1px solid var(--silver-light);
 }
 
 .popout-description-box h4 { 
     font-size: 0.85rem; 
-    color: var(--gold-deep); 
-    margin-bottom: 8px;
-    text-transform: uppercase;
+    color: var(--royal-burgundy); 
+    margin-bottom: 6px; 
+    font-family: 'Cinzel', serif;
     letter-spacing: 1px;
 }
 
 .popout-description-box p { 
     font-size: 0.95rem; 
-    line-height: 1.5; 
+    line-height: 1.6; 
     color: var(--text-color); 
+    font-family: 'Cormorant Garamond', serif;
 }
 
 /* ==========================================================================
-   MODALES GENERALES - EDICTOS REALES
+   MODALES GENERALES — ESTILO REALEZA
    ========================================================================== */
 .modal-overlay {
     position: fixed; inset: 0; 
-    background: rgba(30, 20, 10, 0.75);
+    background: rgba(30, 25, 20, 0.65);
     backdrop-filter: blur(4px);
     display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 2000;
 }
 
 .modal-content { 
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    background: linear-gradient(135deg, #fefcf8 0%, #f7f3ec 100%); 
     padding: 35px; 
-    border-radius: var(--radius); 
-    max-width: 450px; 
+    border-radius: 8px; 
+    max-width: 460px; 
     width: 100%; 
     text-align: center; 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
-    border: 4px solid var(--gold-medium);
+    box-shadow: 0 25px 50px rgba(30, 42, 74, 0.3);
+    border: 2px solid var(--gold-medium);
     position: relative;
 }
 
 .modal-content::before {
-    content: '⚜';
+    content: '';
     position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    color: var(--gold-medium);
-    background: var(--parchment);
-    padding: 0 15px;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid var(--gold-light);
+    border-radius: 4px;
+    pointer-events: none;
 }
 
 .receiver-data-modal { 
-    background: rgba(255, 255, 255, 0.4); 
+    background: linear-gradient(135deg, #f2ece1, #e8dfd0); 
     padding: 18px; 
-    border-radius: 8px; 
+    border-radius: 6px; 
     margin: 20px 0; 
     text-align: left; 
-    border: 2px solid var(--gold-medium); 
+    border: 1px solid var(--gold-medium); 
+    border-left: 4px solid var(--royal-burgundy);
 }
 
 .receiver-data-modal p {
-    margin-bottom: 8px;
-    font-size: 0.9rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
 }
 
 .security-actions {
     display: flex;
     gap: 12px;
-    margin-top: 25px;
+    margin-top: 22px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
 .btn-primary-modal { 
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark)); 
-    color: var(--royal-red-dark); 
-    padding: 14px 24px; 
-    border-radius: 8px; 
-    border: 2px solid var(--gold-light); 
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light)); 
+    color: var(--gold-light); 
+    padding: 13px 20px; 
+    border-radius: 4px; 
+    border: 2px solid var(--gold-medium); 
     font-weight: 700; 
     cursor: pointer; 
     flex: 1; 
     transition: 0.3s; 
     width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
-
 .btn-primary-modal:hover { 
-    background: linear-gradient(135deg, var(--gold-bright), var(--gold-medium));
+    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
+    color: var(--royal-burgundy);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
 .btn-secondary-modal { 
-    background: linear-gradient(135deg, var(--stone-light), var(--stone-medium)); 
-    color: var(--text-color); 
-    padding: 14px 24px; 
-    border-radius: 8px; 
-    border: 2px solid var(--stone-dark); 
+    background: transparent; 
+    color: var(--text-light); 
+    padding: 13px 20px; 
+    border-radius: 4px; 
+    border: 2px solid var(--silver-medium); 
     font-weight: 700; 
     cursor: pointer; 
     flex: 1; 
     transition: 0.3s; 
     width: 100%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
-
 .btn-secondary-modal:hover { 
-    background: linear-gradient(135deg, var(--stone-medium), var(--stone-dark));
-    color: white;
+    background: var(--silver-light);
+    color: var(--text-color);
+    border-color: var(--silver-dark);
 }
 
 .btn-close-modal { 
-    background: linear-gradient(135deg, var(--royal-red), var(--royal-red-dark)); 
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light)); 
     color: var(--gold-light); 
-    padding: 14px 30px; 
-    border-radius: 8px; 
+    padding: 13px 30px; 
+    border-radius: 4px; 
     border: 2px solid var(--gold-medium); 
     font-weight: 700; 
     cursor: pointer; 
     transition: 0.3s; 
     width: 100%; 
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
-
 .btn-close-modal:hover { 
     background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
+    color: var(--royal-burgundy);
     transform: translateY(-2px);
 }
 
 .modal-icon { 
-    font-size: 2.5rem; 
-    margin-bottom: 15px; 
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    font-size: 2rem; 
+    margin-bottom: 12px; 
+    color: var(--gold-dark);
+    font-family: 'Cinzel', serif;
 }
-
 .hidden { display: none !important; }
 
+.modal-content h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--royal-burgundy);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.modal-instruction {
+    font-size: 0.85rem !important;
+    color: var(--text-light);
+    margin: 15px 0;
+    font-style: italic;
+}
+
 /* ==========================================================================
-   LANDING PAGE - PORTAL DEL CASTILLO
+   LANDING PAGE — RVJ
    ========================================================================== */
 .landing-page {
-    background: linear-gradient(180deg, var(--stone-bg) 0%, var(--stone-medium) 100%);
+    background: linear-gradient(135deg, #f7f3ec 0%, #f2ece1 50%, #e8dfd0 100%);
     min-height: 100vh;
 }
 
-/* ============ HERO SECTION - SALÓN PRINCIPAL ============ */
+/* ============ HERO SECTION ============ */
 .hero-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 5rem 1.5rem 4rem;
+    padding: 4rem 1.5rem 3rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -795,14 +735,11 @@ h1, h2, h3, h4, .logo-text {
 @media (min-width: 992px) {
     .hero-section {
         grid-template-columns: 1.2fr 1fr;
-        padding: 6rem 2rem 5rem;
+        padding: 5rem 2rem 4rem;
     }
 }
 
-.hero-content {
-    text-align: center;
-    z-index: 2;
-}
+.hero-content { text-align: center; z-index: 2; }
 
 @media (min-width: 992px) {
     .hero-content { text-align: left; }
@@ -810,56 +747,52 @@ h1, h2, h3, h4, .logo-text {
 
 .hero-badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
-    padding: 10px 22px;
-    border-radius: 30px;
+    background: linear-gradient(135deg, #f2ece1, var(--gold-light));
+    color: var(--royal-burgundy);
+    padding: 8px 20px;
+    border-radius: 3px;
     font-size: 0.8rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    border: 2px solid var(--gold-light);
-    animation: pulse-badge 2s ease-in-out infinite;
-    box-shadow: var(--shadow-gold);
-    text-transform: uppercase;
+    border: 1px solid var(--gold-medium);
+    font-family: 'Cinzel', serif;
     letter-spacing: 2px;
-}
-
-@keyframes pulse-badge {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    box-shadow: var(--shadow-gold);
 }
 
 .hero-title {
     font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 2.4rem;
+    line-height: 1.25;
     color: var(--text-color);
     margin-bottom: 1.5rem;
     font-weight: 700;
-    text-shadow: 2px 2px 0 rgba(201, 162, 39, 0.3);
+    letter-spacing: 1px;
 }
 
 @media (min-width: 768px) {
-    .hero-title { font-size: 3.5rem; }
+    .hero-title { font-size: 3.2rem; }
 }
 
 .hero-highlight {
-    background: linear-gradient(135deg, var(--gold-dark), var(--royal-red));
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--gold-dark));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+    font-style: italic;
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-light);
-    line-height: 1.7;
+    line-height: 1.8;
     margin-bottom: 2rem;
     opacity: 0.9;
     max-width: 550px;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 @media (min-width: 992px) {
@@ -878,56 +811,55 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .btn-hero-primary {
-    background: linear-gradient(135deg, var(--royal-red), var(--royal-red-dark));
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--royal-burgundy-light));
     color: var(--gold-light);
-    padding: 16px 32px;
-    border-radius: 8px;
+    padding: 15px 32px;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1rem;
-    box-shadow: 0 10px 25px rgba(114, 47, 55, 0.4);
+    font-size: 0.95rem;
+    box-shadow: 0 10px 25px rgba(107, 31, 42, 0.3);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     border: 2px solid var(--gold-medium);
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
 
 .btn-hero-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(114, 47, 55, 0.5);
     background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    color: var(--royal-red-dark);
+    color: var(--royal-burgundy);
+    box-shadow: 0 15px 35px rgba(201, 162, 39, 0.4);
 }
 
 .btn-hero-secondary {
-    background: var(--parchment);
-    color: var(--royal-red);
-    padding: 16px 32px;
-    border-radius: 8px;
+    background: transparent;
+    color: var(--royal-burgundy);
+    padding: 15px 32px;
+    border-radius: 4px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1rem;
-    border: 2px solid var(--gold-medium);
+    font-size: 0.95rem;
+    border: 2px solid var(--royal-burgundy);
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
 }
 
 .btn-hero-secondary:hover {
-    background: linear-gradient(135deg, var(--gold-light), var(--gold-medium));
+    background: var(--royal-burgundy);
+    color: var(--gold-light);
     transform: translateY(-3px);
-    box-shadow: var(--shadow-gold);
+    box-shadow: var(--shadow-royal);
 }
 
-/* Emojis flotantes - Símbolos heráldicos */
+/* Decoración flotante — símbolos en lugar de emojis */
 .hero-decoration {
     position: relative;
-    height: 350px;
+    height: 300px;
     display: none;
 }
 
@@ -935,29 +867,32 @@ h1, h2, h3, h4, .logo-text {
     .hero-decoration { display: block; }
 }
 
-.floating-emoji {
+.floating-symbol {
     position: absolute;
     font-size: 3rem;
     animation: float 6s ease-in-out infinite;
-    filter: drop-shadow(0 10px 15px rgba(60, 40, 20, 0.3));
+    color: var(--gold-dark);
+    opacity: 0.5;
+    font-family: 'Cinzel', serif;
+    text-shadow: 0 5px 15px rgba(201, 162, 39, 0.2);
 }
 
-.emoji-1 { top: 5%; left: 15%; animation-delay: 0s; font-size: 4rem; }
-.emoji-2 { top: 45%; left: 55%; animation-delay: 1s; font-size: 3.5rem; }
-.emoji-3 { top: 15%; right: 15%; animation-delay: 2s; font-size: 3rem; }
-.emoji-4 { bottom: 20%; left: 25%; animation-delay: 3s; font-size: 3.5rem; }
-.emoji-5 { bottom: 30%; right: 10%; animation-delay: 4s; font-size: 3rem; }
+.symbol-1 { top: 10%; left: 10%; animation-delay: 0s; font-size: 4rem; color: var(--royal-burgundy); opacity: 0.35; }
+.symbol-2 { top: 50%; left: 50%; animation-delay: 1s; font-size: 3.5rem; color: var(--gold-dark); opacity: 0.4; }
+.symbol-3 { top: 20%; right: 15%; animation-delay: 2s; font-size: 3rem; color: var(--royal-navy); opacity: 0.3; }
+.symbol-4 { bottom: 15%; left: 20%; animation-delay: 3s; font-size: 3.5rem; color: var(--gold-medium); opacity: 0.35; }
+.symbol-5 { bottom: 25%; right: 10%; animation-delay: 4s; font-size: 3rem; color: var(--royal-burgundy); opacity: 0.3; }
 
 @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
 }
 
-/* ============ SECCIÓN DE CATEGORÍAS - SALONES ============ */
+/* ============ SECCIÓN DE CATEGORÍAS ============ */
 .categories-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
 }
 
 .section-header {
@@ -968,30 +903,21 @@ h1, h2, h3, h4, .logo-text {
 .landing-section-title {
     font-family: 'Cinzel', serif;
     font-size: 2rem;
-    color: var(--gold-deep);
+    color: var(--royal-burgundy);
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    position: relative;
-    display: inline-block;
-}
-
-.landing-section-title::before,
-.landing-section-title::after {
-    content: '⚜';
-    color: var(--gold-medium);
-    margin: 0 15px;
-    font-size: 1.2rem;
+    letter-spacing: 2px;
 }
 
 @media (min-width: 768px) {
-    .landing-section-title { font-size: 2.5rem; }
+    .landing-section-title { font-size: 2.4rem; }
 }
 
 .section-subtitle {
     color: var(--text-light);
     opacity: 0.8;
     font-size: 1.05rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
 .categories-grid {
@@ -1001,17 +927,17 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .category-card {
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
-    border-radius: var(--radius);
+    background: var(--bg-white);
+    border-radius: 8px;
     padding: 2.5rem 1.5rem;
     text-decoration: none;
     color: var(--text-color);
     text-align: center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 3px solid var(--stone-dark);
+    border: 1px solid var(--silver-light);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(60, 40, 20, 0.15);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1024,52 +950,54 @@ h1, h2, h3, h4, .logo-text {
     top: 0;
     left: 0;
     right: 0;
-    height: 6px;
+    height: 4px;
     transition: height 0.3s ease;
 }
 
-.category-tejido::before { background: linear-gradient(90deg, var(--iron-medium), var(--iron-light)); }
-.category-papeleria::before { background: linear-gradient(90deg, var(--gold-medium), var(--gold-light)); }
-.category-perfumes::before { background: linear-gradient(90deg, var(--royal-purple), var(--royal-red)); }
-.category-flores::before { background: linear-gradient(90deg, var(--royal-green), var(--gold-medium)); }
-.category-birretes::before { background: linear-gradient(90deg, var(--royal-blue), var(--gold-medium)); }
-.category-todos::before { background: linear-gradient(90deg, var(--gold-medium), var(--royal-red), var(--iron-medium)); }
+.category-tejido::before { background: linear-gradient(90deg, var(--silver-medium), var(--royal-navy)); }
+.category-papeleria::before { background: linear-gradient(90deg, var(--gold-medium), var(--royal-burgundy)); }
+.category-perfumes::before { background: linear-gradient(90deg, var(--royal-purple), var(--gold-medium)); }
+.category-flores::before { background: linear-gradient(90deg, var(--royal-burgundy), var(--gold-light)); }
+.category-birretes::before { background: linear-gradient(90deg, var(--royal-navy), var(--gold-dark)); }
+.category-todos::before { background: linear-gradient(90deg, var(--gold-medium), var(--royal-burgundy), var(--royal-navy)); }
 
 .category-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 45px rgba(60, 40, 20, 0.25);
+    box-shadow: 0 25px 45px rgba(30, 42, 74, 0.15);
     border-color: var(--gold-medium);
 }
 
-.category-card:hover::before {
-    height: 100%;
-    opacity: 0.08;
-}
+.category-card:hover::before { height: 100%; opacity: 0.04; }
 
-.category-icon {
-    font-size: 3.5rem;
+.category-symbol {
+    font-size: 3rem;
     margin-bottom: 0.5rem;
     transition: transform 0.4s ease;
+    color: var(--gold-dark);
+    font-family: 'Cinzel', serif;
+    line-height: 1;
 }
 
-.category-card:hover .category-icon {
+.category-card:hover .category-symbol {
     transform: scale(1.15) rotate(-5deg);
+    color: var(--royal-burgundy);
 }
 
 .category-card h3 {
     font-family: 'Cinzel', serif;
     font-size: 1.3rem;
-    color: var(--gold-deep);
+    color: var(--royal-burgundy);
     margin: 0;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .category-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     opacity: 0.75;
     line-height: 1.5;
     margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
 .category-link {
@@ -1077,27 +1005,22 @@ h1, h2, h3, h4, .logo-text {
     font-weight: 700;
     font-size: 0.85rem;
     margin-top: 0.5rem;
-    transition: 0.3s ease;
+    transition: letter-spacing 0.3s ease;
     display: inline-block;
-    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
     letter-spacing: 1px;
-}
-
-.category-link::after {
-    content: ' →';
-    transition: 0.3s ease;
 }
 
 .category-card:hover .category-link {
     letter-spacing: 2px;
-    color: var(--royal-red);
+    color: var(--royal-burgundy);
 }
 
-/* ============ SECCIÓN DE BENEFICIOS - JURAMENTOS ============ */
+/* ============ SECCIÓN DE BENEFICIOS ============ */
 .features-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 3rem 1.5rem;
 }
 
 .features-grid {
@@ -1107,23 +1030,12 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .feature-card {
-    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
-    border-radius: var(--radius);
+    background: var(--bg-white);
+    border-radius: 8px;
     padding: 2rem 1.5rem;
     text-align: center;
-    border: 2px solid var(--stone-dark);
+    border: 1px solid var(--silver-light);
     transition: all 0.3s ease;
-    position: relative;
-}
-
-.feature-card::before {
-    content: '⚜';
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: var(--gold-medium);
-    opacity: 0.3;
-    font-size: 1.2rem;
 }
 
 .feature-card:hover {
@@ -1132,27 +1044,30 @@ h1, h2, h3, h4, .logo-text {
     box-shadow: var(--shadow-gold);
 }
 
-.feature-icon {
-    font-size: 2.5rem;
+.feature-symbol {
+    font-size: 2.2rem;
     margin-bottom: 1rem;
+    color: var(--gold-dark);
+    font-family: 'Cinzel', serif;
 }
 
 .feature-card h4 {
     font-family: 'Cinzel', serif;
-    font-size: 1rem;
-    color: var(--gold-deep);
+    font-size: 1.05rem;
+    color: var(--royal-burgundy);
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .feature-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     opacity: 0.75;
     line-height: 1.5;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
-/* ============ CTA FINAL - DECRETO REAL ============ */
+/* ============ CTA FINAL ============ */
 .cta-section {
     max-width: 1200px;
     margin: 2rem auto;
@@ -1160,80 +1075,71 @@ h1, h2, h3, h4, .logo-text {
 }
 
 .cta-content {
-    background: linear-gradient(135deg, var(--royal-red-dark), var(--royal-purple));
-    border-radius: var(--radius);
-    padding: 3.5rem 2rem;
+    background: linear-gradient(135deg, var(--royal-navy), var(--royal-burgundy));
+    border-radius: 8px;
+    padding: 3rem 2rem;
     text-align: center;
     color: var(--gold-light);
-    box-shadow: 0 20px 45px rgba(60, 20, 30, 0.4);
+    box-shadow: 0 20px 45px rgba(30, 42, 74, 0.3);
     position: relative;
     overflow: hidden;
-    border: 3px solid var(--gold-medium);
+    border: 2px solid var(--gold-medium);
 }
 
 .cta-content::before {
-    content: '⚜';
+    content: '✦ ✦ ✦';
     position: absolute;
-    font-size: 15rem;
+    font-size: 8rem;
     opacity: 0.06;
-    top: -50px;
-    right: -30px;
-    transform: rotate(-20deg);
-    color: var(--gold-bright);
-}
-
-.cta-content::after {
-    content: '⚜';
-    position: absolute;
-    font-size: 15rem;
-    opacity: 0.06;
-    bottom: -80px;
-    left: -30px;
-    transform: rotate(20deg);
-    color: var(--gold-bright);
+    top: -20px;
+    right: -20px;
+    color: var(--gold-light);
+    letter-spacing: 20px;
+    font-family: 'Cinzel', serif;
 }
 
 .cta-content h2 {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
     position: relative;
     z-index: 1;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 @media (min-width: 768px) {
-    .cta-content h2 { font-size: 2.2rem; }
+    .cta-content h2 { font-size: 2.1rem; }
 }
 
 .cta-content p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.95;
     position: relative;
     z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
 .cta-content .btn-hero-primary {
-    background: var(--gold-medium);
-    color: var(--royal-red-dark);
+    background: var(--gold-light);
+    color: var(--royal-burgundy);
+    border-color: var(--gold-medium);
     position: relative;
     z-index: 1;
-    border-color: var(--gold-light);
 }
 
 .cta-content .btn-hero-primary:hover {
-    background: var(--gold-bright);
-    color: var(--royal-red-dark);
+    background: white;
+    color: var(--royal-burgundy);
 }
 
-/* ============ FOOTER - CRÓNICAS DEL REINO ============ */
+/* ============ FOOTER ============ */
 .main-footer {
-    background: linear-gradient(180deg, var(--royal-red-dark), #2a1215);
-    margin-top: 4rem;
+    background: linear-gradient(135deg, #fefcf8, #f7f3ec);
+    margin-top: 3rem;
     padding: 3rem 1.5rem 1rem;
-    border-top: 4px solid var(--gold-medium);
+    border-top: 3px double var(--gold-medium);
 }
 
 .footer-content {
@@ -1247,26 +1153,26 @@ h1, h2, h3, h4, .logo-text {
 
 .footer-col h4 {
     font-family: 'Cinzel', serif;
-    color: var(--gold-bright);
+    color: var(--royal-burgundy);
     margin-bottom: 1rem;
-    font-size: 1.1rem;
-    text-transform: uppercase;
+    font-size: 1.05rem;
     letter-spacing: 1px;
 }
 
 .footer-col p,
 .footer-col a {
     display: block;
-    color: var(--gold-light);
+    color: var(--text-light);
     text-decoration: none;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
     opacity: 0.8;
     transition: 0.3s;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 .footer-col a:hover {
-    color: var(--gold-bright);
+    color: var(--gold-dark);
     opacity: 1;
     padding-left: 5px;
 }
@@ -1274,52 +1180,38 @@ h1, h2, h3, h4, .logo-text {
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(201, 162, 39, 0.3);
-    color: var(--gold-light);
+    border-top: 1px solid var(--silver-light);
+    color: var(--text-light);
     opacity: 0.6;
     font-size: 0.85rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
 }
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 768px) {
-    .category-nav {
-        gap: 4px;
-    }
-    .category-nav a {
-        font-size: 0.7rem;
-        padding: 6px 10px;
-    }
-    .section-title {
-        font-size: 1.3rem;
-    }
-    .logo-text {
-        font-size: 1.2rem;
-    }
+    .category-nav { gap: 4px; }
+    .category-nav a { font-size: 0.7rem; padding: 6px 10px; }
+    .section-title { font-size: 1.3rem; }
+    .logo-text { font-size: 1.2rem; }
 }
 
 @media (max-width: 480px) {
     .hero-title { font-size: 1.8rem; }
-    .hero-subtitle { font-size: 0.95rem; }
+    .hero-subtitle { font-size: 1rem; }
     .btn-hero-primary,
     .btn-hero-secondary {
         padding: 14px 24px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         width: 100%;
         justify-content: center;
     }
     .hero-buttons { flex-direction: column; }
-    .landing-section-title { 
-        font-size: 1.3rem; 
-        letter-spacing: 1px;
-    }
-    .landing-section-title::before,
-    .landing-section-title::after {
-        display: none;
-    }
+    .landing-section-title { font-size: 1.4rem; }
     .category-card { padding: 2rem 1.2rem; }
-    .category-icon { font-size: 2.8rem; }
+    .category-symbol { font-size: 2.5rem; }
     .cta-content { padding: 2rem 1.5rem; }
     .cta-content h2 { font-size: 1.3rem; }
 }
@@ -1331,25 +1223,17 @@ h1, h2, h3, h4, .logo-text {
     text-align: center;
     padding: 30px 0;
     opacity: 0.7;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
 }
 
 /* Scrollbar personalizada */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--stone-light);
-    border-radius: 6px;
-}
-
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--pearl-bg); }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, var(--gold-medium), var(--gold-dark));
-    border-radius: 6px;
-    border: 2px solid var(--stone-light);
+    background: linear-gradient(135deg, var(--royal-burgundy), var(--gold-medium));
+    border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, var(--gold-bright), var(--gold-medium));
+    background: linear-gradient(135deg, var(--gold-dark), var(--royal-burgundy));
 }

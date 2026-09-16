@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Castillo de Creaciones - Catálogo Real</title>
+    <title>RVJ — Catálogo Completo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Quicksand:wght@300;400;500;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-container">
-                <h1 class="logo-text">🏰 Castillo de Creaciones</h1>
+                <h1 class="logo-text"><span class="rvj-mark">RVJ</span></h1>
             </div>
             
             <nav class="category-nav">
@@ -28,22 +28,22 @@
             </nav>
 
             <a href="#cart-section" class="cart-icon-btn">
-                🛡️ (<span id="cart-count">0</span>)
+                ✧ (<span id="cart-count">0</span>)
             </a>
         </div>
     </header>
 
     <main class="store-container">
         <section class="catalog-section">
-            <h2 class="section-title">Tesoros del Reino</h2>
+            <h2 class="section-title">Dulces Creaciones</h2>
             <div id="products-grid" class="products-grid"></div>
         </section>
 
         <aside class="checkout-sidebar">
             <section id="cart-section" class="cart-section">
-                <h2 class="section-title">Tu Cofre</h2>
+                <h2 class="section-title">Tu Pedido</h2>
                 <div id="cart-items-container" class="cart-items-container">
-                    <p class="empty-cart-msg">Tu cofre está vacío, aventurero.</p>
+                    <p class="empty-cart-msg">Aún no hay tesoros en tu carrito ✧</p>
                 </div>
                 <div class="cart-total-box">
                     <span>Total:</span>
@@ -55,7 +55,7 @@
                 <h2 class="section-title">Finalizar Compra</h2>
                 <form id="checkout-form" class="checkout-form">
                     <fieldset>
-                        <legend>⚜ Tus Datos</legend>
+                        <legend>✦ Tus Datos</legend>
                         <div class="form-group">
                             <label>Nombre Completo</label>
                             <input type="text" id="customer-name" required placeholder="Tu nombre">
@@ -71,7 +71,7 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend>🛡️ Envío por agencia (ZOOM/MRW)</legend>
+                        <legend>✧ Envío por agencia (ZOOM/MRW)</legend>
                         <div class="form-group">
                             <label>Estado</label>
                             <input type="text" id="shipping-state" required placeholder="Miranda">
@@ -86,13 +86,13 @@
                         </div>
                     </fieldset>
 
-                    <button type="submit" class="btn-submit-order">Confirmar por WhatsApp</button>
+                    <button type="submit" class="btn-submit-order">Confirmar por WhatsApp ✧</button>
                 </form>
             </section>
         </aside>
     </main>
 
-    <!-- MODALES -->
+    <!-- MODAL DE DETALLES -->
     <div id="product-detail-modal" class="modal-overlay hidden">
         <div class="modal-content product-popout">
             <button id="close-detail-btn" class="close-popout-btn">×</button>
@@ -109,7 +109,7 @@
                         <h4>Descripción:</h4>
                         <p id="popout-description">Aquí irán los detalles...</p>
                     </div>
-                    <button id="popout-add-btn" class="btn-submit-order">Añadir al cofre 🛡️</button>
+                    <button id="popout-add-btn" class="btn-submit-order">Añadir al carrito ⋆</button>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
 
     <div id="security-modal" class="modal-overlay hidden">
         <div class="modal-content">
-            <div class="modal-icon">⚔️</div>
+            <div class="modal-icon">⚠</div>
             <h2>¿Confirmar tu compra?</h2>
             <p>Por favor, asegúrate de que todos tus datos e ítems del pedido sean correctos antes de continuar.</p>
             <div class="security-actions">
@@ -129,16 +129,16 @@
 
     <div id="success-modal" class="modal-overlay hidden">
         <div class="modal-content">
-            <div class="modal-icon">👑</div>
+            <div class="modal-icon">✦</div>
             <h2>¡Casi listo!</h2>
             <p>Para procesar tu envío rápido, recuerda que el pago debe realizarse a:</p>
             <div class="receiver-data-modal">
-                <p><strong>Banco:</strong> Banco de Venezuela - 0102</p>
+                <p><strong>Banco:</strong> Banco de Venezuela — 0102</p>
                 <p><strong>Teléfono:</strong> 0414-7429116</p>
                 <p><strong>RIF:</strong> V-32195433</p>
             </div>
             <fieldset>
-                <legend>💳 Comprobante de Pago</legend>
+                <legend>✧ Comprobante de Pago</legend>
                 <div class="form-group">
                     <label>Banco Emisor</label>
                     <input type="text" id="payment-bank" required>
@@ -154,7 +154,7 @@
                 </div>
             </fieldset>
             <p class="modal-instruction">Al presionar "Enviar", se abrirá WhatsApp. <b>No olvides adjuntar la imagen del pago manualmente</b> en el chat.</p>
-            <button id="close-modal-btn" class="btn-close-modal">Enviar Pedido</button>
+            <button id="close-modal-btn" class="btn-close-modal">Enviar Pedido ✧</button>
         </div>
     </div>
 

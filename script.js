@@ -1,4 +1,7 @@
-// CONFIGURACIÓN DE PRODUCTOS CON MÚLTIPLES FOTOS Y DETALLES
+// ============================================================
+// RVJ — CATÁLOGO VIRTUAL
+// ============================================================
+
 const PRODUCTS = [
     {
         id: 1,
@@ -29,7 +32,7 @@ const PRODUCTS = [
         name: "Álbum de Figuritas Kpop Demon-Hunters",
         price: 6.00,
         category: "Papelería",
-        description: "Revivie los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables",
+        description: "Revive los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables.",
         images: [
             "imagenes/album1.png",
             "imagenes/album2.png",
@@ -150,7 +153,6 @@ let cart = [];
 
 // ELEMENTOS DOM
 const productsGrid = document.getElementById('products-grid');
-const mainStoreContainer = document.querySelector('.store-container');
 const cartItemsContainer = document.getElementById('cart-items-container');
 const cartTotalAmount = document.getElementById('cart-total-amount');
 const cartCount = document.getElementById('cart-count');
@@ -177,20 +179,22 @@ function getCategoryFromURL() {
     return categoryMap[page] || 'Todos';
 }
 
-// RENDERIZAR PRODUCTOS (FILTRADO POR CATEGORÍA DE LA URL)
+// ============================================================
+// RENDERIZAR PRODUCTOS
+// ============================================================
 function renderCatalog() {
     if (!productsGrid) return;
     
     const currentCategory = getCategoryFromURL();
     
-    if (currentCategory === 'Inicio') return;
+    if (currentCategory === 'Landing') return;
     
     const filteredProducts = currentCategory === 'Todos'
         ? PRODUCTS
         : PRODUCTS.filter(p => p.category === currentCategory);
 
     if (filteredProducts.length === 0) {
-        productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más tesoros en este salón ⚜</p>';
+        productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más productos en esta sección ⋆</p>';
         return;
     }
 
@@ -205,7 +209,7 @@ function renderCatalog() {
                 <h3 class="product-name">${p.name}</h3>
                 <p class="product-price">$${p.price.toFixed(2)}</p>
             </div>
-            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al cofre</button>
+            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al carrito ⋆</button>
         `;
         productsGrid.appendChild(div);
     });
@@ -275,7 +279,7 @@ if (productDetailModal) {
 }
 
 // ============================================================
-// CARRITO DE COMPRAS
+// CARRITO
 // ============================================================
 function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
@@ -297,7 +301,7 @@ function updateUI() {
     let count = 0;
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Tu cofre está vacío, aventurero.</p>';
+        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Aún no hay tesoros en tu carrito ✧</p>';
         if (checkoutSection) checkoutSection.classList.add('hidden');
     } else {
         if (checkoutSection) checkoutSection.classList.remove('hidden');
@@ -307,10 +311,10 @@ function updateUI() {
             const div = document.createElement('div');
             div.className = 'cart-item-row';
             div.innerHTML = `
-                <div><b>${item.name}</b> x${item.quantity}</div>
+                <div><b>${item.name}</b> ×${item.quantity}</div>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span>$${(item.price * item.quantity).toFixed(2)}</span>
-                    <button class="btn-delete-item" onclick="removeFromCart(${item.id})" title="Eliminar del pedido">🗑️</button>
+                    <button class="btn-delete-item" onclick="removeFromCart(${item.id})" title="Eliminar del pedido">✕</button>
                 </div>
             `;
             cartItemsContainer.appendChild(div);
@@ -321,7 +325,7 @@ function updateUI() {
 }
 
 // ============================================================
-// INTERCEPCIÓN DEL FORMULARIO
+// CHECKOUT
 // ============================================================
 if (checkoutForm) {
     checkoutForm.onsubmit = (e) => {
@@ -343,9 +347,6 @@ if (securityConfirmBtn) {
     };
 }
 
-// ============================================================
-// FINALIZAR HACIA WHATSAPP
-// ============================================================
 if (closeModalBtn) {
     closeModalBtn.onclick = () => {
         const name = document.getElementById('customer-name')?.value || '';
@@ -355,19 +356,19 @@ if (closeModalBtn) {
         const bank = document.getElementById('payment-bank')?.value || '';
         const ref = document.getElementById('payment-reference')?.value || '';
 
-        let msg = `🏰 *NUEVO PEDIDO - Castillo de Creaciones*\n\n`;
-        msg += `⚜ *Cliente:* ${name}\n`;
-        msg += `📞 *Tel:* ${phone}\n\n`;
-        msg += `🛡️ *Agencia:* ${state} - ${agency}\n\n`;
-        msg += `💳 *Pago:* ${bank} (Ref: ${ref})\n`;
-        msg += `🖼️ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
-        msg += `🛒 *TESOROS:*\n`;
+        let msg = `✦ *NUEVO PEDIDO — RVJ*\n\n`;
+        msg += `♡ *Cliente:* ${name}\n`;
+        msg += `✆ *Tel:* ${phone}\n\n`;
+        msg += `✧ *Agencia:* ${state} - ${agency}\n\n`;
+        msg += `❖ *Pago:* ${bank} (Ref: ${ref})\n`;
+        msg += `☾ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
+        msg += `✦ *PRODUCTOS:*\n`;
         
         cart.forEach(item => {
-            msg += `- ${item.name} (x${item.quantity})\n`;
+            msg += `— ${item.name} (×${item.quantity})\n`;
         });
         
-        msg += `\n💰 *TOTAL:* ${cartTotalAmount?.textContent || '$0.00'}`;
+        msg += `\n☆ *TOTAL:* ${cartTotalAmount?.textContent || '$0.00'}`;
 
         const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
