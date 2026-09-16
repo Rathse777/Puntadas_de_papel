@@ -71,8 +71,6 @@ const PRODUCTS = [
             "imagenes/conejo2.jpg"
         ]
     },
-
-    // ========== NUEVOS PRODUCTOS PARA PERFUMES ==========
     {
         id: 7,
         name: "Perfume Floral Encanto",
@@ -97,7 +95,6 @@ const PRODUCTS = [
             "imagenes/perfume6.jpg"
         ]
     },
-    // ========== NUEVOS PRODUCTOS PARA FLORES ==========
     {
         id: 9,
         name: "Ramo de Rosas Eternas",
@@ -122,7 +119,6 @@ const PRODUCTS = [
             "imagenes/flores3.png"
         ]
     },
-    // ========== NUEVOS PRODUCTOS PARA BIRRETES ==========
     {
         id: 11,
         name: "Birrete Personalizado",
@@ -162,7 +158,7 @@ const checkoutSection = document.getElementById('checkout-section');
 const checkoutForm = document.getElementById('checkout-form');
 
 // ============================================================
-// NUEVA FUNCIÓN: OBTENER CATEGORÍA DESDE LA URL
+// OBTENER CATEGORÍA DESDE LA URL
 // ============================================================
 function getCategoryFromURL() {
     const path = window.location.pathname;
@@ -187,15 +183,14 @@ function renderCatalog() {
     
     const currentCategory = getCategoryFromURL();
     
-    // Si estamos en la landing, no renderizar nada
-    if (currentCategory === 'Landing') return;
+    if (currentCategory === 'Inicio') return;
     
     const filteredProducts = currentCategory === 'Todos'
         ? PRODUCTS
         : PRODUCTS.filter(p => p.category === currentCategory);
 
     if (filteredProducts.length === 0) {
-        productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más productos en esta sección 🌸</p>';
+        productsGrid.innerHTML = '<p class="empty-cart-msg">Próximamente más tesoros en este salón ⚜</p>';
         return;
     }
 
@@ -210,17 +205,15 @@ function renderCatalog() {
                 <h3 class="product-name">${p.name}</h3>
                 <p class="product-price">$${p.price.toFixed(2)}</p>
             </div>
-            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al carrito 🌸</button>
+            <button class="btn-add-cart" onclick="addToCart(${p.id})">Añadir al cofre</button>
         `;
         productsGrid.appendChild(div);
     });
 }
 
 // ============================================================
-// RESTO DEL CÓDIGO (MODALES, CARRITO, ETC.)
+// MODAL DE DETALLES
 // ============================================================
-
-// ELEMENTOS DEL MODAL DE DETALLES
 const productDetailModal = document.getElementById('product-detail-modal');
 const closeDetailBtn = document.getElementById('close-detail-btn');
 const popoutMainImg = document.getElementById('popout-main-img');
@@ -231,37 +224,29 @@ const popoutPrice = document.getElementById('popout-price');
 const popoutDescription = document.getElementById('popout-description');
 const popoutAddBtn = document.getElementById('popout-add-btn');
 
-// ELEMENTOS DEL MODAL DE SEGURIDAD
 const securityModal = document.getElementById('security-modal');
 const securityConfirmBtn = document.getElementById('security-confirm-btn');
 const securityCancelBtn = document.getElementById('security-cancel-btn');
 
-// MODAL DE ÉXITO PAGO
 const successModal = document.getElementById('success-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 
-// ABRIR DETALLES DEL PRODUCTO (MODAL FLOTANTE)
 function openProductDetails(id) {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return;
 
-    // Poblar textos básicos
     popoutCategory.textContent = p.category;
     popoutName.textContent = p.name;
     popoutPrice.textContent = `$${p.price.toFixed(2)}`;
     popoutDescription.textContent = p.description;
-    
-    // Configurar imagen principal inicial
     popoutMainImg.src = p.images[0] || '';
 
-    // Limpiar y poblar miniaturas de fotos
     popoutThumbnails.innerHTML = '';
     p.images.forEach((imgUrl, index) => {
         const img = document.createElement('img');
         img.src = imgUrl || '';
         img.className = `thumb-img ${index === 0 ? 'active' : ''}`;
         
-        // Evento al dar clic a la miniatura
         img.onclick = () => {
             popoutMainImg.src = imgUrl || '';
             document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
@@ -270,13 +255,11 @@ function openProductDetails(id) {
         popoutThumbnails.appendChild(img);
     });
 
-    // Vincular acción del botón del modal al carrito
     popoutAddBtn.onclick = () => {
         addToCart(p.id);
         closeProductDetails();
     };
 
-    // Mostrar modal flotante
     productDetailModal.classList.remove('hidden');
 }
 
@@ -284,7 +267,6 @@ function closeProductDetails() {
     productDetailModal.classList.add('hidden');
 }
 
-// CERRAR MODAL DETALLES AL TOCAR FUERA O LA X
 if (closeDetailBtn) closeDetailBtn.onclick = closeProductDetails;
 if (productDetailModal) {
     productDetailModal.onclick = (e) => {
@@ -292,7 +274,9 @@ if (productDetailModal) {
     };
 }
 
-// CARRITO DE COMPRAS LÓGICA
+// ============================================================
+// CARRITO DE COMPRAS
+// ============================================================
 function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
     const existing = cart.find(item => item.id === id);
@@ -313,7 +297,7 @@ function updateUI() {
     let count = 0;
 
     if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Aún no hay tesoros en tu carrito.</p>';
+        cartItemsContainer.innerHTML = '<p class="empty-cart-msg">Tu cofre está vacío, aventurero.</p>';
         if (checkoutSection) checkoutSection.classList.add('hidden');
     } else {
         if (checkoutSection) checkoutSection.classList.remove('hidden');
@@ -336,7 +320,9 @@ function updateUI() {
     if (cartCount) cartCount.textContent = count;
 }
 
-// INTERCEPCIÓN DEL FORMULARIO: SE ABRE LA VENTANA DE SEGURIDAD PRIMERO
+// ============================================================
+// INTERCEPCIÓN DEL FORMULARIO
+// ============================================================
 if (checkoutForm) {
     checkoutForm.onsubmit = (e) => {
         e.preventDefault();
@@ -344,14 +330,12 @@ if (checkoutForm) {
     };
 }
 
-// ACCIÓN DEL BOTÓN CANCELAR EN EL MODAL DE SEGURIDAD
 if (securityCancelBtn) {
     securityCancelBtn.onclick = () => {
         if (securityModal) securityModal.classList.add('hidden');
     };
 }
 
-// ACCIÓN DEL BOTÓN ACEPTAR EN EL MODAL DE SEGURIDAD
 if (securityConfirmBtn) {
     securityConfirmBtn.onclick = () => {
         if (securityModal) securityModal.classList.add('hidden');
@@ -359,7 +343,9 @@ if (securityConfirmBtn) {
     };
 }
 
-// FINALIZAR HACIA WHATSAPP DESDE EL MODAL DE ÉXITO
+// ============================================================
+// FINALIZAR HACIA WHATSAPP
+// ============================================================
 if (closeModalBtn) {
     closeModalBtn.onclick = () => {
         const name = document.getElementById('customer-name')?.value || '';
@@ -369,13 +355,13 @@ if (closeModalBtn) {
         const bank = document.getElementById('payment-bank')?.value || '';
         const ref = document.getElementById('payment-reference')?.value || '';
 
-        let msg = `🌸 *NUEVO PEDIDO*\n\n`;
-        msg += `👤 *Cliente:* ${name}\n`;
+        let msg = `🏰 *NUEVO PEDIDO - Castillo de Creaciones*\n\n`;
+        msg += `⚜ *Cliente:* ${name}\n`;
         msg += `📞 *Tel:* ${phone}\n\n`;
-        msg += `📦 *Agencia:* ${state} - ${agency}\n\n`;
+        msg += `🛡️ *Agencia:* ${state} - ${agency}\n\n`;
         msg += `💳 *Pago:* ${bank} (Ref: ${ref})\n`;
         msg += `🖼️ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
-        msg += `🛒 *PRODUCTOS:*\n`;
+        msg += `🛒 *TESOROS:*\n`;
         
         cart.forEach(item => {
             msg += `- ${item.name} (x${item.quantity})\n`;
@@ -386,7 +372,6 @@ if (closeModalBtn) {
         const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
         
-        // Resetear Estado de la Tienda por completo
         cart = [];
         if (checkoutForm) checkoutForm.reset();
         updateUI();
