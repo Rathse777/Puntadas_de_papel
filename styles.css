@@ -93,7 +93,7 @@ h1, h2, h3, h4, .logo-text {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: right;
     gap: 1rem;
     position: relative;
 }
