@@ -143,4 +143,156 @@
 
     <script src="script.js"></script>
 </body>
+
+<style>
+/* ═══════════════════════════════════════
+   SHOOTING STARS OVERLAY — Five stars
+════════════════════════════════════════ */
+
+.shooting-stars {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999999;
+}
+
+.shooting-stars span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f4eee8;
+  opacity: 0;
+
+  box-shadow:
+    0 0 0 3px rgba(244, 238, 232, 0.05),
+    0 0 0 6px rgba(139, 0, 0, 0.06),
+    0 0 14px rgba(244, 238, 232, 0.18);
+
+  animation-name: shooting-star;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* Shooting-star tail */
+.shooting-stars span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 155px;
+  height: 1px;
+  transform: translateY(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      #f4eee8,
+      rgba(139, 0, 0, 0.34),
+      transparent
+    );
+}
+
+/* Star movement */
+@keyframes shooting-star {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(315deg) translateX(-1050px);
+    opacity: 0;
+  }
+}
+
+/* Individual star timing and placement */
+.shooting-stars span:nth-child(1) {
+  top: 5vh;
+  right: 8vw;
+  animation-delay: 0.8s;
+  animation-duration: 4.6s;
+}
+
+.shooting-stars span:nth-child(2) {
+  top: 18vh;
+  right: 38vw;
+  animation-delay: 4.4s;
+  animation-duration: 5.4s;
+}
+
+.shooting-stars span:nth-child(3) {
+  top: 36vh;
+  right: 14vw;
+  animation-delay: 8.2s;
+  animation-duration: 4.9s;
+}
+
+.shooting-stars span:nth-child(4) {
+  top: 56vh;
+  right: 52vw;
+  animation-delay: 12.6s;
+  animation-duration: 5.8s;
+}
+
+.shooting-stars span:nth-child(5) {
+  top: 74vh;
+  right: 24vw;
+  animation-delay: 16.7s;
+  animation-duration: 5.1s;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 767px) {
+  .shooting-stars span::before {
+    width: 105px;
+  }
+
+  .shooting-stars span:nth-child(1) {
+    top: 8vh;
+    right: 6vw;
+  }
+
+  .shooting-stars span:nth-child(2) {
+    top: 26vh;
+    right: 42vw;
+  }
+
+  .shooting-stars span:nth-child(3) {
+    top: 44vh;
+    right: 12vw;
+  }
+
+  .shooting-stars span:nth-child(4) {
+    top: 62vh;
+    right: 58vw;
+  }
+
+  .shooting-stars span:nth-child(5) {
+    top: 80vh;
+    right: 25vw;
+  }
+}
+</style>
+
+<div class="shooting-stars">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 </html>

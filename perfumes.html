@@ -146,368 +146,153 @@
 
 <style>
 /* ═══════════════════════════════════════
-   FLOATING LANTERN OVERLAY — 5 lanterns
+   SHOOTING STARS OVERLAY — Five stars
 ════════════════════════════════════════ */
 
-.lantern-overlay {
+.shooting-stars {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
   pointer-events: none;
+  overflow: hidden;
   z-index: 999999;
 }
 
-/* Each lantern starts below the viewport and rises upward */
-.floating-lantern {
+.shooting-stars span {
   position: absolute;
-  left: 50%;
-  bottom: -120px;
-  width: 38px;
-  height: 58px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f4eee8;
   opacity: 0;
+
+  box-shadow:
+    0 0 0 3px rgba(244, 238, 232, 0.05),
+    0 0 0 6px rgba(139, 0, 0, 0.06),
+    0 0 14px rgba(244, 238, 232, 0.18);
+
+  animation-name: shooting-star;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  will-change: transform, opacity;
+  animation-fill-mode: both;
 }
 
-/* Lantern body */
-.lantern-body {
+/* Shooting-star tail */
+.shooting-stars span::before {
+  content: "";
   position: absolute;
-  left: 50%;
-  top: 0;
-  width: 34px;
-  height: 44px;
-  transform: translateX(-50%);
-  border-radius: 45% 45% 38% 38% / 20% 20% 70% 70%;
-  border: 1px solid rgba(255, 208, 118, 0.72);
+  top: 50%;
+  width: 155px;
+  height: 1px;
+  transform: translateY(-50%);
+
   background:
     linear-gradient(
       90deg,
-      rgba(175, 84, 27, 0.72) 0%,
-      rgba(255, 171, 66, 0.82) 15%,
-      rgba(255, 225, 139, 0.96) 48%,
-      rgba(255, 173, 65, 0.84) 82%,
-      rgba(152, 67, 24, 0.74) 100%
-    );
-  box-shadow:
-    inset 0 0 8px rgba(255, 247, 203, 0.85),
-    inset 0 -8px 14px rgba(129, 46, 9, 0.34),
-    0 0 8px rgba(255, 181, 72, 0.65),
-    0 0 20px rgba(255, 139, 39, 0.34);
-  animation: lantern-sway 3.8s ease-in-out infinite;
-  transform-origin: center top;
-}
-
-/* Vertical paper ribs */
-.lantern-body::before {
-  content: "";
-  position: absolute;
-  inset: 3px 5px;
-  border-radius: inherit;
-  background:
-    linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 23%,
-      rgba(120, 48, 15, 0.22) 24%,
-      rgba(120, 48, 15, 0.22) 27%,
-      transparent 28%,
-      transparent 48%,
-      rgba(120, 48, 15, 0.2) 49%,
-      rgba(120, 48, 15, 0.2) 52%,
-      transparent 53%,
-      transparent 73%,
-      rgba(120, 48, 15, 0.22) 74%,
-      rgba(120, 48, 15, 0.22) 77%,
-      transparent 78%
+      #f4eee8,
+      rgba(139, 0, 0, 0.34),
+      transparent
     );
 }
 
-/* Flame */
-.lantern-body::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 7px;
-  width: 10px;
-  height: 17px;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 45% 45%;
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 223, 1) 0%,
-      rgba(255, 231, 128, 0.98) 34%,
-      rgba(255, 145, 39, 0.76) 68%,
-      transparent 74%
-    );
-  filter: blur(0.4px);
-  animation: lantern-flame 1.4s ease-in-out infinite;
-}
-
-.lantern-top {
-  position: absolute;
-  left: 50%;
-  top: -3px;
-  width: 24px;
-  height: 5px;
-  transform: translateX(-50%);
-  border-radius: 4px 4px 2px 2px;
-  background: linear-gradient(#7d3517, #3e190c);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-}
-
-.lantern-bottom {
-  position: absolute;
-  left: 50%;
-  top: 41px;
-  width: 22px;
-  height: 5px;
-  transform: translateX(-50%);
-  border-radius: 2px 2px 5px 5px;
-  background: linear-gradient(#7d3517, #3b170a);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.42);
-}
-
-.lantern-tassel {
-  position: absolute;
-  left: 50%;
-  top: 46px;
-  width: 1px;
-  height: 12px;
-  transform: translateX(-50%);
-  background: rgba(110, 45, 18, 0.82);
-}
-
-.lantern-tassel::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  width: 5px;
-  height: 7px;
-  transform: translateX(-50%);
-  border-radius: 50% 50% 65% 65%;
-  background: #6d2913;
-}
-
-/* ═══════════════════════════════════════
-   RISE ANIMATIONS
-   All begin at the bottom
-════════════════════════════════════════ */
-
-@keyframes lantern-rise-one {
+/* Star movement */
+@keyframes shooting-star {
   0% {
-    transform: translate3d(0, 0, 0) scale(0.78) rotate(-2deg);
+    transform: rotate(315deg) translateX(0);
     opacity: 0;
   }
-  8% {
-    opacity: 0.72;
-  }
-  28% {
-    transform: translate3d(24px, -28vh, 0) scale(0.86) rotate(2deg);
-  }
-  52% {
-    transform: translate3d(8px, -58vh, 0) scale(0.95) rotate(-1deg);
-  }
-  76% {
-    transform: translate3d(38px, -88vh, 0) scale(1.03) rotate(2deg);
-    opacity: 0.64;
-  }
-  100% {
-    transform: translate3d(16px, -125vh, 0) scale(1.1) rotate(0deg);
-    opacity: 0;
-  }
-}
 
-@keyframes lantern-rise-two {
-  0% {
-    transform: translate3d(0, 0, 0) scale(0.72) rotate(2deg);
-    opacity: 0;
-  }
   10% {
-    opacity: 0.68;
-  }
-  30% {
-    transform: translate3d(-26px, -30vh, 0) scale(0.82) rotate(-2deg);
-  }
-  56% {
-    transform: translate3d(-10px, -62vh, 0) scale(0.92) rotate(2deg);
-  }
-  80% {
-    transform: translate3d(-34px, -92vh, 0) scale(1) rotate(-2deg);
-    opacity: 0.58;
-  }
-  100% {
-    transform: translate3d(-14px, -128vh, 0) scale(1.08) rotate(0deg);
-    opacity: 0;
-  }
-}
-
-@keyframes lantern-rise-three {
-  0% {
-    transform: translate3d(0, 0, 0) scale(0.75);
-    opacity: 0;
-  }
-  9% {
-    opacity: 0.66;
-  }
-  32% {
-    transform: translate3d(14px, -32vh, 0) scale(0.84);
-  }
-  58% {
-    transform: translate3d(-18px, -64vh, 0) scale(0.94);
-  }
-  82% {
-    transform: translate3d(12px, -95vh, 0) scale(1.02);
-    opacity: 0.56;
-  }
-  100% {
-    transform: translate3d(-8px, -130vh, 0) scale(1.1);
-    opacity: 0;
-  }
-}
-
-/* Gentle sway */
-@keyframes lantern-sway {
-  0%, 100% {
-    transform: translateX(-50%) rotate(-3deg);
-  }
-  50% {
-    transform: translateX(-50%) rotate(3deg);
-  }
-}
-
-/* Flame flicker */
-@keyframes lantern-flame {
-  0%, 100% {
-    opacity: 0.72;
-    transform: translateX(-50%) scale(0.82);
-  }
-  35% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.08);
   }
-  68% {
-    opacity: 0.84;
-    transform: translateX(-50%) scale(0.92);
+
+  62% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(315deg) translateX(-1050px);
+    opacity: 0;
   }
 }
 
-/* ═══════════════════════════════════════
-   ONLY 5 LANTERNS
-   Different starting areas and timings
-════════════════════════════════════════ */
-
-.floating-lantern:nth-child(1) {
-  left: 10%;
-  animation-name: lantern-rise-one;
-  animation-duration: 26s;
-  animation-delay: -3s;
+/* Individual star timing and placement */
+.shooting-stars span:nth-child(1) {
+  top: 5vh;
+  right: 8vw;
+  animation-delay: 0.8s;
+  animation-duration: 4.6s;
 }
 
-.floating-lantern:nth-child(2) {
-  left: 28%;
-  width: 30px;
-  height: 46px;
-  animation-name: lantern-rise-two;
-  animation-duration: 32s;
-  animation-delay: -14s;
+.shooting-stars span:nth-child(2) {
+  top: 18vh;
+  right: 38vw;
+  animation-delay: 4.4s;
+  animation-duration: 5.4s;
 }
 
-.floating-lantern:nth-child(2) .lantern-body {
-  transform: translateX(-50%) scale(0.82);
+.shooting-stars span:nth-child(3) {
+  top: 36vh;
+  right: 14vw;
+  animation-delay: 8.2s;
+  animation-duration: 4.9s;
 }
 
-.floating-lantern:nth-child(3) {
-  left: 50%;
-  width: 44px;
-  height: 68px;
-  animation-name: lantern-rise-three;
-  animation-duration: 29s;
-  animation-delay: -8s;
+.shooting-stars span:nth-child(4) {
+  top: 56vh;
+  right: 52vw;
+  animation-delay: 12.6s;
+  animation-duration: 5.8s;
 }
 
-.floating-lantern:nth-child(3) .lantern-body {
-  transform: translateX(-50%) scale(1.14);
+.shooting-stars span:nth-child(5) {
+  top: 74vh;
+  right: 24vw;
+  animation-delay: 16.7s;
+  animation-duration: 5.1s;
 }
 
-.floating-lantern:nth-child(4) {
-  left: 70%;
-  animation-name: lantern-rise-one;
-  animation-duration: 35s;
-  animation-delay: -19s;
-}
-
-.floating-lantern:nth-child(5) {
-  left: 88%;
-  width: 34px;
-  height: 52px;
-  animation-name: lantern-rise-two;
-  animation-duration: 31s;
-  animation-delay: -24s;
-}
-
-.floating-lantern:nth-child(5) .lantern-body {
-  transform: translateX(-50%) scale(0.9);
-}
-
-/* Mobile */
+/* Mobile adjustments */
 @media screen and (max-width: 767px) {
-  .floating-lantern:nth-child(2),
-  .floating-lantern:nth-child(5) {
-    display: none;
+  .shooting-stars span::before {
+    width: 105px;
   }
 
-  .floating-lantern {
-    opacity: 0.85;
+  .shooting-stars span:nth-child(1) {
+    top: 8vh;
+    right: 6vw;
   }
-}
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
-  .lantern-overlay {
-    display: none;
+  .shooting-stars span:nth-child(2) {
+    top: 26vh;
+    right: 42vw;
+  }
+
+  .shooting-stars span:nth-child(3) {
+    top: 44vh;
+    right: 12vw;
+  }
+
+  .shooting-stars span:nth-child(4) {
+    top: 62vh;
+    right: 58vw;
+  }
+
+  .shooting-stars span:nth-child(5) {
+    top: 80vh;
+    right: 25vw;
   }
 }
 </style>
 
-<div class="lantern-overlay" aria-hidden="true">
-  <span class="floating-lantern">
-    <i class="lantern-body"></i>
-    <i class="lantern-top"></i>
-    <i class="lantern-bottom"></i>
-    <i class="lantern-tassel"></i>
-  </span>
-
-  <span class="floating-lantern">
-    <i class="lantern-body"></i>
-    <i class="lantern-top"></i>
-    <i class="lantern-bottom"></i>
-    <i class="lantern-tassel"></i>
-  </span>
-
-  <span class="floating-lantern">
-    <i class="lantern-body"></i>
-    <i class="lantern-top"></i>
-    <i class="lantern-bottom"></i>
-    <i class="lantern-tassel"></i>
-  </span>
-
-  <span class="floating-lantern">
-    <i class="lantern-body"></i>
-    <i class="lantern-top"></i>
-    <i class="lantern-bottom"></i>
-    <i class="lantern-tassel"></i>
-  </span>
-
-  <span class="floating-lantern">
-    <i class="lantern-body"></i>
-    <i class="lantern-top"></i>
-    <i class="lantern-bottom"></i>
-    <i class="lantern-tassel"></i>
-  </span>
+<div class="shooting-stars">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
 </div>
 </html>

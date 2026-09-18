@@ -1030,12 +1030,13 @@ h1, h2, h3, h4, .logo-text {
     transition: height 0.3s ease;
 }
 
-.category-tejido::before { background: linear-gradient(90deg, var(--blue-medium), var(--blue-deep)); }
+.category-tejido::before { background: linear-gradient(90deg, var(--rose-medium), var(--blue-deep)); }
 .category-papeleria::before { background: linear-gradient(90deg, var(--gold-soft), var(--rose-medium)); }
 .category-perfumes::before { background: linear-gradient(90deg, var(--rose-medium), var(--gold-soft)); }
 .category-flores::before { background: linear-gradient(90deg, var(--rose-deep), var(--gold-light)); }
 .category-birretes::before { background: linear-gradient(90deg, var(--blue-deep), var(--gold-medium)); }
 .category-todos::before { background: linear-gradient(90deg, var(--gold-soft), var(--rose-medium), var(--blue-medium)); }
+.category-bolsos::before { background: linear-gradient(90deg, var(--blue-deep), var(--gold-medium)); }
 
 .category-card:hover {
     transform: translateY(-6px) scale(1.02);
