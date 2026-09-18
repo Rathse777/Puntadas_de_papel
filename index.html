@@ -170,147 +170,301 @@
 
 <style>
 /* ═══════════════════════════════════════
-   SHOOTING STARS OVERLAY — Five stars
+   FALLING PETALS — 8 Petals
 ════════════════════════════════════════ */
 
-.shooting-stars {
+.petals {
   position: fixed;
   inset: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
   z-index: 999999;
 }
 
-.shooting-stars span {
+/* Individual petals */
+.petals span {
   position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: #f4eee8;
+  top: -35px;
+  width: 17px;
+  height: 12px;
   opacity: 0;
 
-  box-shadow:
-    0 0 0 3px rgba(244, 238, 232, 0.05),
-    0 0 0 6px rgba(139, 0, 0, 0.06),
-    0 0 14px rgba(244, 238, 232, 0.18);
+  border-radius:
+    75% 25% 70% 30% /
+    65% 35% 65% 35%;
 
-  animation-name: shooting-star;
+  background:
+    radial-gradient(
+      circle at 30% 28%,
+      rgba(255, 255, 255, 0.75) 0 8%,
+      transparent 9%
+    ),
+    linear-gradient(
+      135deg,
+      #ffd4df 0%,
+      #f3a8bc 50%,
+      #cf6f91 100%
+    );
+
+  box-shadow:
+    inset -2px -2px 4px rgba(116, 34, 64, 0.18),
+    0 2px 5px rgba(0, 0, 0, 0.12);
+
+  animation-name: petal-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
+
+  will-change: transform, opacity;
 }
 
-/* Shooting-star tail */
-.shooting-stars span::before {
+/* Small petal crease */
+.petals span::after {
   content: "";
   position: absolute;
-  top: 50%;
-  width: 155px;
-  height: 1px;
-  transform: translateY(-50%);
-
-  background:
-    linear-gradient(
-      90deg,
-      #f4eee8,
-      rgba(139, 0, 0, 0.34),
-      transparent
-    );
+  left: 48%;
+  top: 17%;
+  width: 1px;
+  height: 68%;
+  border-radius: 999px;
+  background: rgba(130, 52, 82, 0.22);
+  transform: rotate(18deg);
 }
 
-/* Star movement */
-@keyframes shooting-star {
+/* ═══════════════════════════════════════
+   LEFT-SWAYING PETALS
+════════════════════════════════════════ */
+
+@keyframes petal-fall {
   0% {
-    transform: rotate(315deg) translateX(0);
+    transform:
+      translate3d(0, -30px, 0)
+      rotate(0deg)
+      rotateY(0deg);
     opacity: 0;
   }
 
-  10% {
-    opacity: 1;
+  5% {
+    opacity: 0.8;
   }
 
-  62% {
-    opacity: 1;
+  20% {
+    transform:
+      translate3d(-18px, 20vh, 0)
+      rotate(70deg)
+      rotateY(75deg);
+  }
+
+  40% {
+    transform:
+      translate3d(-45px, 42vh, 0)
+      rotate(145deg)
+      rotateY(145deg);
+  }
+
+  60% {
+    transform:
+      translate3d(-12px, 64vh, 0)
+      rotate(225deg)
+      rotateY(225deg);
+  }
+
+  80% {
+    transform:
+      translate3d(25px, 86vh, 0)
+      rotate(305deg)
+      rotateY(305deg);
+    opacity: 0.72;
   }
 
   100% {
-    transform: rotate(315deg) translateX(-1050px);
+    transform:
+      translate3d(5px, 112vh, 0)
+      rotate(390deg)
+      rotateY(390deg);
     opacity: 0;
   }
 }
 
-/* Individual star timing and placement */
-.shooting-stars span:nth-child(1) {
-  top: 5vh;
-  right: 8vw;
-  animation-delay: 0.8s;
-  animation-duration: 4.6s;
+/* ═══════════════════════════════════════
+   RIGHT-SWAYING PETALS
+════════════════════════════════════════ */
+
+@keyframes petal-fall-reverse {
+  0% {
+    transform:
+      translate3d(0, -30px, 0)
+      rotate(140deg)
+      rotateY(0deg);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.78;
+  }
+
+  20% {
+    transform:
+      translate3d(20px, 20vh, 0)
+      rotate(75deg)
+      rotateY(75deg);
+  }
+
+  40% {
+    transform:
+      translate3d(48px, 42vh, 0)
+      rotate(5deg)
+      rotateY(150deg);
+  }
+
+  60% {
+    transform:
+      translate3d(14px, 64vh, 0)
+      rotate(-75deg)
+      rotateY(225deg);
+  }
+
+  80% {
+    transform:
+      translate3d(-25px, 86vh, 0)
+      rotate(-155deg)
+      rotateY(305deg);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform:
+      translate3d(-4px, 112vh, 0)
+      rotate(-240deg)
+      rotateY(390deg);
+    opacity: 0;
+  }
 }
 
-.shooting-stars span:nth-child(2) {
-  top: 18vh;
-  right: 38vw;
-  animation-delay: 4.4s;
-  animation-duration: 5.4s;
+/* Alternate movement direction */
+.petals span:nth-child(even) {
+  animation-name: petal-fall-reverse;
 }
 
-.shooting-stars span:nth-child(3) {
-  top: 36vh;
-  right: 14vw;
-  animation-delay: 8.2s;
-  animation-duration: 4.9s;
+/* ═══════════════════════════════════════
+   PETAL POSITIONS AND TIMING
+════════════════════════════════════════ */
+
+.petals span:nth-child(1) {
+  left: 7%;
+  width: 15px;
+  height: 11px;
+  animation-duration: 14s;
+  animation-delay: 1s;
 }
 
-.shooting-stars span:nth-child(4) {
-  top: 56vh;
-  right: 52vw;
-  animation-delay: 12.6s;
-  animation-duration: 5.8s;
+.petals span:nth-child(2) {
+  left: 21%;
+  width: 19px;
+  height: 13px;
+  animation-duration: 17s;
+  animation-delay: 9s;
 }
 
-.shooting-stars span:nth-child(5) {
-  top: 74vh;
-  right: 24vw;
-  animation-delay: 16.7s;
-  animation-duration: 5.1s;
+.petals span:nth-child(3) {
+  left: 38%;
+  width: 13px;
+  height: 10px;
+  animation-duration: 15s;
+  animation-delay: 18s;
 }
 
-/* Mobile adjustments */
+.petals span:nth-child(4) {
+  left: 54%;
+  width: 18px;
+  height: 12px;
+  animation-duration: 18s;
+  animation-delay: 5s;
+}
+
+.petals span:nth-child(5) {
+  left: 67%;
+  width: 14px;
+  height: 10px;
+  animation-duration: 16s;
+  animation-delay: 14s;
+}
+
+.petals span:nth-child(6) {
+  left: 79%;
+  width: 20px;
+  height: 14px;
+  animation-duration: 19s;
+  animation-delay: 23s;
+}
+
+.petals span:nth-child(7) {
+  left: 91%;
+  width: 16px;
+  height: 11px;
+  animation-duration: 15s;
+  animation-delay: 7s;
+}
+
+.petals span:nth-child(8) {
+  left: 46%;
+  width: 12px;
+  height: 9px;
+  animation-duration: 20s;
+  animation-delay: 29s;
+}
+
+/* Slight petal color variations */
+.petals span:nth-child(3n) {
+  background:
+    radial-gradient(
+      circle at 30% 28%,
+      rgba(255, 255, 255, 0.7) 0 8%,
+      transparent 9%
+    ),
+    linear-gradient(
+      135deg,
+      #ffe0e8,
+      #edb5c5 52%,
+      #c98199
+    );
+}
+
+.petals span:nth-child(2n) {
+  filter: brightness(0.94) saturate(0.88);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE ADJUSTMENTS
+════════════════════════════════════════ */
+
 @media screen and (max-width: 767px) {
-  .shooting-stars span::before {
-    width: 105px;
+  .petals span {
+    width: 13px;
+    height: 9px;
   }
 
-  .shooting-stars span:nth-child(1) {
-    top: 8vh;
-    right: 6vw;
+  /* Fewer petals on mobile */
+  .petals span:nth-child(7),
+  .petals span:nth-child(8) {
+    display: none;
   }
+}
 
-  .shooting-stars span:nth-child(2) {
-    top: 26vh;
-    right: 42vw;
-  }
-
-  .shooting-stars span:nth-child(3) {
-    top: 44vh;
-    right: 12vw;
-  }
-
-  .shooting-stars span:nth-child(4) {
-    top: 62vh;
-    right: 58vw;
-  }
-
-  .shooting-stars span:nth-child(5) {
-    top: 80vh;
-    right: 25vw;
+/* Disable animation for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  .petals {
+    display: none;
   }
 }
 </style>
 
-<div class="shooting-stars">
+<div class="petals">
+  <span></span>
+  <span></span>
+  <span></span>
   <span></span>
   <span></span>
   <span></span>
