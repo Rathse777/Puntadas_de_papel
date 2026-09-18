@@ -100,9 +100,9 @@ h1, h2, h3, h4, .logo-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    min-width: 56px;
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
     background: linear-gradient(135deg, #fdfcff, #fce8ed, #e8f0fe);
     border-radius: 50%;
     border: 2px solid var(--gold-soft);
@@ -110,12 +110,13 @@ h1, h2, h3, h4, .logo-text {
         0 4px 15px rgba(180, 160, 200, 0.25),
         0 0 0 3px rgba(253, 252, 255, 0.8);
     padding: 4px;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     flex-shrink: 0;
 }
 
 .logo-container:hover {
-    transform: scale(1.06);
+    transform: scale(1.10);
     box-shadow:
         0 6px 20px rgba(180, 160, 200, 0.35),
         0 0 0 3px rgba(253, 252, 255, 0.9),
@@ -1296,9 +1297,9 @@ h1, h2, h3, h4, .logo-text {
     }
 
     .logo-container {
-        width: 46px;
-        height: 46px;
-        min-width: 46px;
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
     }
 
     .category-nav {
@@ -1335,9 +1336,9 @@ h1, h2, h3, h4, .logo-text {
 
 @media (max-width: 420px) {
     .logo-container {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
     }
 
     .category-nav a {

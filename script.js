@@ -118,7 +118,7 @@ const PRODUCTS = [
 ];
 
 const WHATSAPP_PHONE = '+584147429116';
-let cart = [];
+let cart = JSON.parse(localStorage.getItem('rvj_cart')) || [];
 
 // ELEMENTOS DOM
 const productsGrid = document.getElementById('products-grid');
@@ -252,17 +252,23 @@ if (productDetailModal) {
 // ============================================================
 // CARRITO
 // ============================================================
+function saveCart() {
+    localStorage.setItem('rvj_cart', JSON.stringify(cart));
+}
+
 function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return;
     const existing = cart.find(item => item.id === id);
     if (existing) existing.quantity++;
     else cart.push({...p, quantity: 1});
+    saveCart();
     updateUI();
 }
 
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
+    saveCart();
     updateUI();
 }
 
@@ -343,6 +349,7 @@ if (closeModalBtn) {
         window.open(url, '_blank');
 
         cart = [];
+        saveCart();
         if (checkoutForm) checkoutForm.reset();
         updateUI();
         if (successModal) successModal.classList.add('hidden');
@@ -350,4 +357,7 @@ if (closeModalBtn) {
 }
 
 // INICIALIZAR
-document.addEventListener('DOMContentLoaded', renderCatalog);
+document.addEventListener('DOMContentLoaded', () => {
+    renderCatalog();
+    updateUI();        
+});

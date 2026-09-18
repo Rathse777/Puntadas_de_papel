@@ -132,7 +132,276 @@
             <button id="close-modal-btn" class="btn-close-modal">Enviar pedido por WhatsApp ✧</button>
         </div>
     </div>
+        
+    <!-- MODAL PARA AMPLIAR LOGO -->
+    <div id="logo-modal" class="modal-overlay hidden">
+        <div class="modal-content logo-modal-content">
+            <button id="close-logo-modal" class="close-popout-btn">×</button>
+            <img src="imagenes/logo.png" alt="RVJ" class="logo-modal-img">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
+
+<style>
+/* ═══════════════════════════════════════
+   FLOATING BUBBLE OVERLAY
+════════════════════════════════════════ */
+
+.bubble-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+/* Two larger decorative bubbles */
+.bubble-overlay::before,
+.bubble-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -90px;
+  border-radius: 50%;
+  opacity: 0;
+
+  background:
+    radial-gradient(
+      circle at 30% 24%,
+      rgba(255, 255, 255, 0.98) 0 5%,
+      transparent 7%
+    ),
+    radial-gradient(
+      circle at 66% 72%,
+      rgba(255, 194, 219, 0.48),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(157, 223, 255, 0.35),
+      rgba(199, 200, 255, 0.18),
+      rgba(170, 247, 239, 0.36)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  box-shadow:
+    inset 6px 7px 12px rgba(255, 255, 255, 0.42),
+    inset -7px -7px 12px rgba(140, 183, 255, 0.18),
+    0 10px 28px rgba(83, 128, 170, 0.14);
+
+  backdrop-filter: blur(2px);
+  will-change: transform, opacity;
+}
+
+.bubble-overlay::before {
+  left: 8vw;
+  width: 42px;
+  height: 42px;
+  animation: large-bubble-one 15s linear infinite;
+}
+
+.bubble-overlay::after {
+  right: 10vw;
+  width: 68px;
+  height: 68px;
+  animation: large-bubble-two 20s linear 4s infinite;
+}
+
+/* Smaller bubble container */
+.bubble-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Individual bubbles */
+.bubble {
+  position: absolute;
+  left: var(--left);
+  bottom: -120px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  opacity: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.72);
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.98) 0 4%,
+      transparent 6%
+    ),
+    radial-gradient(
+      circle at 70% 68%,
+      rgba(255, 194, 219, 0.32),
+      transparent 27%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(157, 223, 255, 0.3),
+      rgba(255, 214, 187, 0.18),
+      rgba(170, 247, 239, 0.31)
+    );
+
+  box-shadow:
+    inset 5px 6px 12px rgba(255, 255, 255, 0.38),
+    inset -4px -5px 9px rgba(140, 183, 255, 0.12),
+    0 12px 35px rgba(83, 128, 170, 0.12);
+
+  animation:
+    bubble-rise
+    var(--speed)
+    linear
+    var(--delay)
+    infinite;
+
+  will-change: transform, opacity;
+}
+
+/* ═══════════════════════════════════════
+   BUBBLE MOVEMENT
+════════════════════════════════════════ */
+
+@keyframes large-bubble-one {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.55);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  48% {
+    transform: translate3d(7vw, -48vh, 0) scale(0.9);
+  }
+
+  78% {
+    opacity: 0.62;
+  }
+
+  100% {
+    transform: translate3d(-3vw, -115vh, 0) scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes large-bubble-two {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.45);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.68;
+  }
+
+  45% {
+    transform: translate3d(-9vw, -45vh, 0) scale(0.85);
+  }
+
+  100% {
+    transform: translate3d(4vw, -120vh, 0) scale(1.25);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.5);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.72;
+  }
+
+  50% {
+    transform:
+      translate3d(var(--drift), -52vh, 0)
+      scale(0.85);
+  }
+
+  86% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform:
+      translate3d(calc(var(--drift) * -0.45), -122vh, 0)
+      scale(1.12);
+    opacity: 0;
+  }
+}
+
+/* Fewer bubbles on mobile */
+@media screen and (max-width: 767px) {
+  .bubble:nth-child(2),
+  .bubble:nth-child(4),
+  .bubble:nth-child(7) {
+    display: none;
+  }
+
+  .bubble-overlay::after {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .bubble-overlay {
+    display: none;
+  }
+}
+</style>
+
+<div class="bubble-overlay" aria-hidden="true">
+  <div class="bubble-field">
+    <span
+      class="bubble"
+      style="--size:18px; --left:4%; --speed:14s; --delay:1s; --drift:42px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:32px; --left:17%; --speed:19s; --delay:7s; --drift:-55px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:13px; --left:31%; --speed:13s; --delay:4s; --drift:65px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:53px; --left:47%; --speed:22s; --delay:10s; --drift:-74px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:24px; --left:61%; --speed:16s; --delay:2s; --drift:48px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:39px; --left:74%; --speed:21s; --delay:8s; --drift:-60px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:16px; --left:88%; --speed:15s; --delay:5s; --drift:36px;">
+    </span>
+
+    <span
+      class="bubble"
+      style="--size:29px; --left:95%; --speed:18s; --delay:12s; --drift:-42px;">
+    </span>
+  </div>
+</div>
 </html>
