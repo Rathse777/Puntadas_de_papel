@@ -1,5 +1,5 @@
 // ============================================================
-// RVJ — CATÁLOGO VIRTUAL
+// RVJ — CATÁLOGO VIRTUAL (carrito simple + WhatsApp)
 // ============================================================
 
 const PRODUCTS = [
@@ -9,11 +9,7 @@ const PRODUCTS = [
         price: 7.00,
         category: "Tejido",
         description: "Guantes hechos de estambre acrílico suave y semi-elástica de excelente calidad. Para manos delgadas, perfecta para climas frescos o looks de invierno coquetos. Pídalos con una semana de anticipación y pregunte por colores disponibles.",
-        images: [
-            "imagenes/GuantesNegros.png",
-            "imagenes/GuantesBlancos.png",
-            "imagenes/GuantesBlancosyNegros.jpg"
-        ]
+        images: ["imagenes/GuantesNegros.png", "imagenes/GuantesBlancos.png", "imagenes/GuantesBlancosyNegros.jpg"]
     },
     {
         id: 2,
@@ -21,11 +17,7 @@ const PRODUCTS = [
         price: 4.00,
         category: "Tejido",
         description: "Guantes hechos de estambre acrílico suave. Para manos pequeñas de niñas, perfecta para climas frescos. Pídalos con una semana de anticipación y pregunte por colores disponibles.",
-        images: [
-            "imagenes/GuantesRosas.png",
-            "imagenes/GuantesRosasPuestos1.jpg",
-            "imagenes/GuantesRosasPuestos2.jpg"
-        ]
+        images: ["imagenes/GuantesRosas.png", "imagenes/GuantesRosasPuestos1.jpg", "imagenes/GuantesRosasPuestos2.jpg"]
     },
     {
         id: 3,
@@ -33,11 +25,7 @@ const PRODUCTS = [
         price: 6.00,
         category: "Papelería",
         description: "Revive los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables.",
-        images: [
-            "imagenes/album1.png",
-            "imagenes/album2.png",
-            "imagenes/album3.png"
-        ]
+        images: ["imagenes/album1.png", "imagenes/album2.png", "imagenes/album3.png"]
     },
     {
         id: 4,
@@ -45,11 +33,7 @@ const PRODUCTS = [
         price: 21.00,
         category: "Papelería",
         description: "Cada paquete trae 5 figuritas de un tamaño.",
-        images: [
-            "imagenes/figuritas1.png",
-            "imagenes/figuritas2.png",
-            "imagenes/figuritas3.png"
-        ]
+        images: ["imagenes/figuritas1.png", "imagenes/figuritas2.png", "imagenes/figuritas3.png"]
     },
     {
         id: 5,
@@ -57,11 +41,7 @@ const PRODUCTS = [
         price: 20.00,
         category: "Tejido",
         description: "Gorro de punto suave y semi-elástica de excelente calidad. Con orejas de gatito y adornos metalizados para un look coqueto, perfecta para climas fríos.",
-        images: [
-            "imagenes/GorrodeGatito1.jpg",
-            "imagenes/GorrodeGatito2.jpg",
-            "imagenes/GorrodeGatito3.jpg"
-        ]
+        images: ["imagenes/GorrodeGatito1.jpg", "imagenes/GorrodeGatito2.jpg", "imagenes/GorrodeGatito3.jpg"]
     },
     {
         id: 6,
@@ -69,10 +49,7 @@ const PRODUCTS = [
         price: 10.00,
         category: "Tejido",
         description: "Un tierno compañero tejido con la técnica amigurumi. Relleno suave y esponjoso con ojos de seguridad. El regalo perfecto para cualquier edad.",
-        images: [
-            "imagenes/conejo1.jpg",
-            "imagenes/conejo2.jpg"
-        ]
+        images: ["imagenes/conejo1.jpg", "imagenes/conejo2.jpg"]
     },
     {
         id: 7,
@@ -80,11 +57,7 @@ const PRODUCTS = [
         price: 35.00,
         category: "Perfumes",
         description: "Fragancia floral con notas de jazmín, rosa y un toque de vainilla. Perfecto para el día a día.",
-        images: [
-            "imagenes/perfume1.jpg",
-            "imagenes/perfume2.jpg",
-            "imagenes/perfume3.jpg"
-        ]
+        images: ["imagenes/perfume1.jpg", "imagenes/perfume2.jpg", "imagenes/perfume3.jpg"]
     },
     {
         id: 8,
@@ -92,11 +65,7 @@ const PRODUCTS = [
         price: 45.00,
         category: "Perfumes",
         description: "Aroma intenso con notas de sándalo, ámbar y bergamota. Ideal para ocasiones especiales.",
-        images: [
-            "imagenes/perfume4.jpg",
-            "imagenes/perfume5.jpg",
-            "imagenes/perfume6.jpg"
-        ]
+        images: ["imagenes/perfume4.jpg", "imagenes/perfume5.jpg", "imagenes/perfume6.jpg"]
     },
     {
         id: 9,
@@ -104,11 +73,7 @@ const PRODUCTS = [
         price: 25.00,
         category: "Flores",
         description: "Hermoso ramo de rosas preservadas que duran hasta un año. Caja decorativa incluida.",
-        images: [
-            "imagenes/rosas1.png",
-            "imagenes/rosas2.png",
-            "imagenes/rosas3.png"
-        ]
+        images: ["imagenes/rosas1.png", "imagenes/rosas2.png", "imagenes/rosas3.png"]
     },
     {
         id: 10,
@@ -116,11 +81,7 @@ const PRODUCTS = [
         price: 30.00,
         category: "Flores",
         description: "Combinación de flores de temporada en tonos pastel. Incluye jarrón de vidrio.",
-        images: [
-            "imagenes/flores1.png",
-            "imagenes/flores2.png",
-            "imagenes/flores3.png"
-        ]
+        images: ["imagenes/flores1.png", "imagenes/flores2.png", "imagenes/flores3.png"]
     },
     {
         id: 11,
@@ -128,11 +89,7 @@ const PRODUCTS = [
         price: 18.00,
         category: "Birretes",
         description: "Birrete universitario con bordado personalizado. Disponible en varios colores.",
-        images: [
-            "imagenes/birrete1.png",
-            "imagenes/birrete2.png",
-            "imagenes/birrete3.png"
-        ]
+        images: ["imagenes/birrete1.png", "imagenes/birrete2.png", "imagenes/birrete3.png"]
     },
     {
         id: 12,
@@ -140,11 +97,23 @@ const PRODUCTS = [
         price: 22.00,
         category: "Birretes",
         description: "Birrete elegante con borla dorada. Ideal para graduaciones.",
-        images: [
-            "imagenes/birrete4.png",
-            "imagenes/birrete5.png",
-            "imagenes/birrete6.png"
-        ]
+        images: ["imagenes/birrete4.png", "imagenes/birrete5.png", "imagenes/birrete6.png"]
+    },
+    {
+        id: 13,
+        name: "Bolso de Moda",
+        price: 45.00,
+        category: "Bolsos",
+        description: "Bolso de moda hechos a mano con detalles exclusivos.",
+        images: ["imagenes/bolsos1.png", "imagenes/bolsos2.png", "imagenes/bolsos3.png"]
+    },
+    {
+        id: 14,
+        name: "Bolso Casual",  
+        price: 35.00,
+        category: "Bolsos",
+        description: "Bolso casual diseñado para el estilo de vida diaria.",
+        images: ["imagenes/bolsos4.png", "imagenes/bolsos5.png", "imagenes/bolsos6.png"]
     }
 ];
 
@@ -165,7 +134,7 @@ const checkoutForm = document.getElementById('checkout-form');
 function getCategoryFromURL() {
     const path = window.location.pathname;
     const page = path.split('/').pop();
-    
+
     const categoryMap = {
         'index.html': 'Inicio',
         'tienda.html': 'Todos',
@@ -175,7 +144,7 @@ function getCategoryFromURL() {
         'flores.html': 'Flores',
         'birretes.html': 'Birretes'
     };
-    
+
     return categoryMap[page] || 'Todos';
 }
 
@@ -184,11 +153,11 @@ function getCategoryFromURL() {
 // ============================================================
 function renderCatalog() {
     if (!productsGrid) return;
-    
+
     const currentCategory = getCategoryFromURL();
-    
-    if (currentCategory === 'Landing') return;
-    
+
+    if (currentCategory === 'Inicio') return;
+
     const filteredProducts = currentCategory === 'Todos'
         ? PRODUCTS
         : PRODUCTS.filter(p => p.category === currentCategory);
@@ -204,7 +173,7 @@ function renderCatalog() {
         div.className = 'product-card';
         div.innerHTML = `
             <div class="product-card-clickable" onclick="openProductDetails(${p.id})">
-                <img src="${p.images[0] || ''}" class="product-img" alt="${p.name}">
+                <img src="${p.images[0] || ''}" class="product-img" alt="${p.name}" loading="lazy">
                 <span class="product-card-category">${p.category}</span>
                 <h3 class="product-name">${p.name}</h3>
                 <p class="product-price">$${p.price.toFixed(2)}</p>
@@ -250,7 +219,8 @@ function openProductDetails(id) {
         const img = document.createElement('img');
         img.src = imgUrl || '';
         img.className = `thumb-img ${index === 0 ? 'active' : ''}`;
-        
+        img.alt = p.name + ' ' + (index + 1);
+
         img.onclick = () => {
             popoutMainImg.src = imgUrl || '';
             document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
@@ -283,6 +253,7 @@ if (productDetailModal) {
 // ============================================================
 function addToCart(id) {
     const p = PRODUCTS.find(x => x.id === id);
+    if (!p) return;
     const existing = cart.find(item => item.id === id);
     if (existing) existing.quantity++;
     else cart.push({...p, quantity: 1});
@@ -311,11 +282,10 @@ function updateUI() {
             const div = document.createElement('div');
             div.className = 'cart-item-row';
             div.innerHTML = `
-                <div><b>${item.name}</b> ×${item.quantity}</div>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
-                    <button class="btn-delete-item" onclick="removeFromCart(${item.id})" title="Eliminar del pedido">✕</button>
-                </div>
+                <b>${item.name}</b>
+                <span>×${item.quantity}</span>
+                <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                <button class="btn-delete-item" onclick="removeFromCart(${item.id})" title="Eliminar">✕</button>
             `;
             cartItemsContainer.appendChild(div);
         });
@@ -325,7 +295,7 @@ function updateUI() {
 }
 
 // ============================================================
-// CHECKOUT
+// CHECKOUT SIMPLIFICADO
 // ============================================================
 if (checkoutForm) {
     checkoutForm.onsubmit = (e) => {
@@ -351,28 +321,26 @@ if (closeModalBtn) {
     closeModalBtn.onclick = () => {
         const name = document.getElementById('customer-name')?.value || '';
         const phone = document.getElementById('customer-phone')?.value || '';
-        const state = document.getElementById('shipping-state')?.value || '';
-        const agency = document.getElementById('shipping-agency')?.value || '';
-        const bank = document.getElementById('payment-bank')?.value || '';
-        const ref = document.getElementById('payment-reference')?.value || '';
+        const shipping = document.getElementById('shipping-method')?.value || '';
+        const notes = document.getElementById('customer-notes')?.value || '';
 
         let msg = `✦ *NUEVO PEDIDO — RVJ*\n\n`;
         msg += `♡ *Cliente:* ${name}\n`;
-        msg += `✆ *Tel:* ${phone}\n\n`;
-        msg += `✧ *Agencia:* ${state} - ${agency}\n\n`;
-        msg += `❖ *Pago:* ${bank} (Ref: ${ref})\n`;
-        msg += `☾ *NOTA:* Adjunto captura de pago en el siguiente mensaje.\n\n`;
-        msg += `✦ *PRODUCTOS:*\n`;
-        
+        msg += `✆ *Tel:* ${phone}\n`;
+        msg += `✧ *Envío:* ${shipping}\n`;
+        if (notes) msg += `☾ *Notas:* ${notes}\n`;
+        msg += `\n✦ *PRODUCTOS:*\n`;
+
         cart.forEach(item => {
-            msg += `— ${item.name} (×${item.quantity})\n`;
+            msg += `— ${item.name} (×${item.quantity}) — $${(item.price * item.quantity).toFixed(2)}\n`;
         });
-        
-        msg += `\n☆ *TOTAL:* ${cartTotalAmount?.textContent || '$0.00'}`;
+
+        msg += `\n☆ *TOTAL:* ${cartTotalAmount?.textContent || '$0.00'}\n\n`;
+        msg += `Te escribo para coordinar pago y envío. ¡Gracias! ⋆`;
 
         const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
         window.open(url, '_blank');
-        
+
         cart = [];
         if (checkoutForm) checkoutForm.reset();
         updateUI();
