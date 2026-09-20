@@ -100,9 +100,9 @@ h1, h2, h3, h4, .logo-text {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75px;
-    height: 75px;
-    min-width: 75px;
+    width: 90px;        /* antes 75px */
+    height: 90px;       /* antes 75px */
+    min-width: 90px;    /* antes 75px */
     background: linear-gradient(135deg, #fdfcff, #fce8ed, #e8f0fe);
     border-radius: 50%;
     border: 2px solid var(--gold-soft);
@@ -1298,9 +1298,9 @@ h1, h2, h3, h4, .logo-text {
     }
 
     .logo-container {
-        width: 56px;
-        height: 56px;
-        min-width: 56px;
+        width: 68px;    
+        height: 68px;
+        min-width: 68px;
     }
 
     .category-nav {
@@ -1337,9 +1337,9 @@ h1, h2, h3, h4, .logo-text {
 
 @media (max-width: 420px) {
     .logo-container {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
+        width: 58px;   
+        height: 58px;
+        min-width: 58px;
     }
 
     .category-nav a {
@@ -1377,4 +1377,82 @@ h1, h2, h3, h4, .logo-text {
     .category-symbol { font-size: 1.8rem; }
     .cta-content { padding: 1.5rem 1.2rem; }
     .cta-content h2 { font-size: 1.1rem; }
+}
+
+/* ==========================================================================
+   MODAL LOGO AMPLIADO
+   ========================================================================== */
+.logo-modal-content {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 95vw !important;
+    width: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-modal-content::before {
+    display: none !important;
+}
+
+.logo-modal-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid var(--gold-soft);
+    box-shadow: 0 0 60px rgba(212, 184, 106, 0.5);
+    background: linear-gradient(135deg, #fdfcff, #fce8ed);
+    object-fit: contain;
+}
+
+.logo-modal-content .close-popout-btn {
+    top: -10px;
+    right: -10px;
+    background: var(--rose-medium);
+    color: var(--bg-white);
+    border-color: var(--gold-soft);
+    z-index: 10;
+}
+
+/* ==========================================================================
+   CHIBI FLOTANTE (esquina inferior derecha)
+   ========================================================================== */
+.chibi-flotante {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 90px;
+    height: auto;
+    z-index: 99999;
+    pointer-events: none;
+    filter: drop-shadow(0 6px 15px rgba(180, 160, 200, 0.35));
+    animation: chibi-float 4s ease-in-out infinite;
+    user-select: none;
+}
+
+@keyframes chibi-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+@media (max-width: 700px) {
+    .chibi-flotante {
+        width: 70px;
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .chibi-flotante {
+        width: 58px;
+        bottom: 10px;
+        right: 10px;
+    }
 }
