@@ -21,18 +21,18 @@ const PRODUCTS = [
     },
     {
         id: 3,
-        name: "Álbum de Figuritas Kpop Demon-Hunters",
+        name: "Libreta de resorte",
         price: 6.00,
         category: "Papelería",
-        description: "Revive los momentos más inolvidables de la película más taquillera del año. Contiene 50 páginas Tamaño A5, 32 hojas, con capacidad para 160 figuritas coleccionables.",
+        description: "Libreta rayada de resorte color blanco puro con diseños de super héroes con 100 hojas",
         images: ["imagenes/album1.png", "imagenes/album2.png", "imagenes/album3.png"]
     },
     {
         id: 4,
-        name: "Paquete de 32 figuritas Kpop Demon-Hunters",
+        name: "Caja de colores metalizados",
         price: 21.00,
         category: "Papelería",
-        description: "Cada paquete trae 5 figuritas de un tamaño.",
+        description: "Caja de 12  colores metalizados con diseño de estampado, cremosos y de buena calidad.",
         images: ["imagenes/figuritas1.png", "imagenes/figuritas2.png", "imagenes/figuritas3.png"]
     },
     {
