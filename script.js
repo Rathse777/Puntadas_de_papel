@@ -25,7 +25,7 @@ const PRODUCTS = [
         price: 6.00,
         category: "Papelería",
         description: "Libretas de resorte con diseños lindos y detalles que harán que tus ideas cobren vida. Contiene 100 hojas de una línea fina y suave. Ideal para notas, apuntes o dibujos.",
-        images: ["imagenes/libreta1.png", "imagenes/libreta2.png", "imagenes/libreta3.png"]
+        images: ["imagenes/libreta1.jpg", "imagenes/libreta2.jpg", "imagenes/libreta3.jpg"]
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const PRODUCTS = [
         price: 21.00,
         category: "Papelería",
         description: "Caja de 12  colores metalizados con diseño de estampado, cremosos y de buena calidad que harán que tus dibujos cobren vida, perfectos para los artistas de la casa.",
-        images: ["imagenes/colores1.png", "imagenes/colores2.png"]
+        images: ["imagenes/colores1.jpg", "imagenes/colores2.jpg"]
     },
     {
         id: 5,
@@ -72,8 +72,8 @@ const PRODUCTS = [
         name: "Ramo de Rosas Eternas",
         price: 25.00,
         category: "Flores",
-        description: "Hermoso ramo de rosas hecho con limpiapipas que duran por un largo tiempo perfectas. Hermosas, delicadas y elegantes. Ideal para regalar en cualquier ocasión especial.",
-        images: ["imagenes/rosas1.png", "imagenes/rosas2.png", "imagenes/rosas3.png"]
+        description: "Hermoso ramo de rosas hecho con limpiapipas que duran por un largo tiempo perfectas. Hermosas, delicadas y elegantes. Ideal para regalar a esa persona especial.",
+        images: ["imagenes/rosas1.jpg", "imagenes/rosas2.jpg", "imagenes/rosas3.jpg"]
     },
     {
         id: 10,
@@ -81,7 +81,7 @@ const PRODUCTS = [
         price: 30.00,
         category: "Flores",
         description: "Combinación de flores suaves hechas con limpiapipas en tonos pastel. Incluye envoltura decorativa y un lazo del color de su preferencia. Pregunte por la combinación ideal.",
-        images: ["imagenes/flores1.png", "imagenes/flores2.png"]
+        images: ["imagenes/flores1.jpg", "imagenes/flores2.jpg"]
     },
     {
         id: 11,
@@ -89,7 +89,7 @@ const PRODUCTS = [
         price: 18.00,
         category: "Birretes",
         description: "Birrete universitario con bordado personalizado. Disponible en varios colores, pídalo con su nombre y colores de su preferencia.",
-        images: ["imagenes/birrete1.png", "imagenes/birrete2.png", "imagenes/birrete3.png"]
+        images: ["imagenes/birrete1.jpg", "imagenes/birrete2.jpg", "imagenes/birrete3.jpg"]
     },
     {
         id: 12,
@@ -97,7 +97,7 @@ const PRODUCTS = [
         price: 22.00,
         category: "Birretes",
         description: "Birrete elegante con corona dorada y lazo. Ideal para que en ese día especial se vean como las reinas que son y disfruten de su momento. Disponible en varios colores y con nombres personalizados.",
-        images: ["imagenes/birrete4.png", "imagenes/birrete5.png"]
+        images: ["imagenes/birrete4.jpg", "imagenes/birrete5.jpg"]
     },
     {
         id: 13,
@@ -105,7 +105,7 @@ const PRODUCTS = [
         price: 45.00,
         category: "Bolsos",
         description: "Bolso de moda hechos a mano con detalles exclusivos, perfecto para ocasiones especiales y salidas nocturnas. Pregunte por colores disponibles y tamaños.",
-        images: ["imagenes/bolsos1.png", "imagenes/bolsos2.png", "imagenes/bolsos3.png"]
+        images: ["imagenes/bolsos1.jpg", "imagenes/bolsos2.jpg", "imagenes/bolsos3.jpg"]
     },
     {
         id: 14,
@@ -113,7 +113,7 @@ const PRODUCTS = [
         price: 35.00,
         category: "Bolsos",
         description: "Bolso casual diseñado para el estilo de vida diaria, con gran capacidad para llevar tus cosas esenciales. Pregunte por colores disponibles y tamaños.",
-        images: ["imagenes/bolsos4.png", "imagenes/bolsos5.png", "imagenes/bolsos6.png"]
+        images: ["imagenes/bolsos4.jpg", "imagenes/bolsos5.jpg", "imagenes/bolsos6.jpg"]
     }
 ];
 
