@@ -24,16 +24,16 @@ const PRODUCTS = [
         name: "Libreta de resorte",
         price: 6.00,
         category: "Papelería",
-        description: "Libreta rayada de resorte color blanco puro con diseños de super héroes con 100 hojas",
-        images: ["imagenes/album1.png", "imagenes/album2.png", "imagenes/album3.png"]
+        description: "Libretas de resorte con diseños lindos y detalles que harán que tus ideas cobren vida. Contiene 100 hojas de una línea fina y suave. Ideal para notas, apuntes o dibujos.",
+        images: ["imagenes/libreta1.png", "imagenes/libreta2.png", "imagenes/libreta3.png"]
     },
     {
         id: 4,
         name: "Caja de colores metalizados",
         price: 21.00,
         category: "Papelería",
-        description: "Caja de 12  colores metalizados con diseño de estampado, cremosos y de buena calidad.",
-        images: ["imagenes/figuritas1.png", "imagenes/figuritas2.png", "imagenes/figuritas3.png"]
+        description: "Caja de 12  colores metalizados con diseño de estampado, cremosos y de buena calidad que harán que tus dibujos cobren vida, perfectos para los artistas de la casa.",
+        images: ["imagenes/colores1.png", "imagenes/colores2.png"]
     },
     {
         id: 5,
@@ -56,23 +56,23 @@ const PRODUCTS = [
         name: "Perfume Floral Encanto",
         price: 35.00,
         category: "Perfumes",
-        description: "Fragancia floral con notas de jazmín, rosa y un toque de vainilla. Perfecto para el día a día.",
-        images: ["imagenes/perfume1.jpg", "imagenes/perfume2.jpg", "imagenes/perfume3.jpg"]
+        description: "Fragancia floral con notas de jazmín, rosa y un toque de vainilla. Para que te sientas fresca y segura todo el día.",
+        images: ["imagenes/perfume1.jpg", "imagenes/perfume2.jpg"]
     },
     {
         id: 8,
         name: "Perfume Misterio Nocturno",
         price: 45.00,
         category: "Perfumes",
-        description: "Aroma intenso con notas de sándalo, ámbar y bergamota. Ideal para ocasiones especiales.",
-        images: ["imagenes/perfume4.jpg", "imagenes/perfume5.jpg", "imagenes/perfume6.jpg"]
+        description: "Aroma intenso con notas de sándalo, ámbar y bergamota. Ideal para ocasiones especiales, como fiestas o cenas elegantes. Para que luzcas increíble ante todos.",
+        images: ["imagenes/perfume3.jpg", "imagenes/perfume4.jpg", "imagenes/perfume5.jpg"]
     },
     {
         id: 9,
         name: "Ramo de Rosas Eternas",
         price: 25.00,
         category: "Flores",
-        description: "Hermoso ramo de rosas preservadas que duran hasta un año. Caja decorativa incluida.",
+        description: "Hermoso ramo de rosas hecho con limpiapipas que duran por un largo tiempo perfectas. Hermosas, delicadas y elegantes. Ideal para regalar en cualquier ocasión especial.",
         images: ["imagenes/rosas1.png", "imagenes/rosas2.png", "imagenes/rosas3.png"]
     },
     {
@@ -80,31 +80,31 @@ const PRODUCTS = [
         name: "Arreglo Floral Primavera",
         price: 30.00,
         category: "Flores",
-        description: "Combinación de flores de temporada en tonos pastel. Incluye jarrón de vidrio.",
-        images: ["imagenes/flores1.png", "imagenes/flores2.png", "imagenes/flores3.png"]
+        description: "Combinación de flores suaves hechas con limpiapipas en tonos pastel. Incluye envoltura decorativa y un lazo del color de su preferencia. Pregunte por la combinación ideal.",
+        images: ["imagenes/flores1.png", "imagenes/flores2.png"]
     },
     {
         id: 11,
         name: "Birrete Personalizado",
         price: 18.00,
         category: "Birretes",
-        description: "Birrete universitario con bordado personalizado. Disponible en varios colores.",
+        description: "Birrete universitario con bordado personalizado. Disponible en varios colores, pídalo con su nombre y colores de su preferencia.",
         images: ["imagenes/birrete1.png", "imagenes/birrete2.png", "imagenes/birrete3.png"]
     },
     {
         id: 12,
-        name: "Birrete con Borla Dorada",
+        name: "Birrete con corona dorada",
         price: 22.00,
         category: "Birretes",
-        description: "Birrete elegante con borla dorada. Ideal para graduaciones.",
-        images: ["imagenes/birrete4.png", "imagenes/birrete5.png", "imagenes/birrete6.png"]
+        description: "Birrete elegante con corona dorada y lazo. Ideal para que en ese día especial se vean como las reinas que son y disfruten de su momento. Disponible en varios colores y con nombres personalizados.",
+        images: ["imagenes/birrete4.png", "imagenes/birrete5.png"]
     },
     {
         id: 13,
         name: "Bolso de Moda",
         price: 45.00,
         category: "Bolsos",
-        description: "Bolso de moda hechos a mano con detalles exclusivos.",
+        description: "Bolso de moda hechos a mano con detalles exclusivos, perfecto para ocasiones especiales y salidas nocturnas. Pregunte por colores disponibles y tamaños.",
         images: ["imagenes/bolsos1.png", "imagenes/bolsos2.png", "imagenes/bolsos3.png"]
     },
     {
@@ -112,7 +112,7 @@ const PRODUCTS = [
         name: "Bolso Casual",  
         price: 35.00,
         category: "Bolsos",
-        description: "Bolso casual diseñado para el estilo de vida diaria.",
+        description: "Bolso casual diseñado para el estilo de vida diaria, con gran capacidad para llevar tus cosas esenciales. Pregunte por colores disponibles y tamaños.",
         images: ["imagenes/bolsos4.png", "imagenes/bolsos5.png", "imagenes/bolsos6.png"]
     }
 ];
