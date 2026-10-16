@@ -114,6 +114,22 @@ const PRODUCTS = [
         category: "Bolsos",
         description: "Bolso casual diseñado para el estilo de vida diaria, con gran capacidad para llevar tus cosas esenciales. Pregunte por colores disponibles y tamaños.",
         images: ["imagenes/bolsos4.jpg", "imagenes/bolsos5.jpg", "imagenes/bolsos6.jpg"]
+    },
+    {
+        id: 15,
+        name: "Llavero de Gato Tejido",
+        price: 5.00,
+        category: "Llaveros",
+        description: "Llavero de gato tejido a mano con detalles únicos. Perfecto para los amantes de los gatos.",
+        images: ["imagenes/llaveros1.jpg", "imagenes/llaveros2.jpg"]
+    },
+    {
+        id: 16,
+        name: "Llavero de Corazón Peludo",
+        price: 5.00,
+        category: "Llaveros",
+        description: "Llavero de corazón peludo con detalles metálicos de oro de fantasía. Para darle un toque único a tus llaves o bolsos.",
+        images: ["imagenes/llaveros3.jpg", "imagenes/llaveros4.jpg", "imagenes/llaveros5.jpg"]
     }
 ];
 
