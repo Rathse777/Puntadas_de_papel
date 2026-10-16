@@ -120,7 +120,7 @@ const PRODUCTS = [
         name: "Llavero de Gato Tejido",
         price: 5.00,
         category: "Llaveros",
-        description: "Llavero de gato tejido a mano con detalles únicos. Perfecto para los amantes de los gatos.",
+        description: "Llavero de gato tejido a mano con detalles únicos, colores variados y diseños exclusivos. Perfecto para los amantes de los gatos.",
         images: ["imagenes/llaveros1.jpg", "imagenes/llaveros2.jpg"]
     },
     {
@@ -128,7 +128,7 @@ const PRODUCTS = [
         name: "Llavero de Corazón Peludo",
         price: 5.00,
         category: "Llaveros",
-        description: "Llavero de corazón peludo con detalles metálicos de oro de fantasía. Para darle un toque único a tus llaves o bolsos.",
+        description: "Llavero de corazón peludo de colores diferentes y textura suave y esponjosa con detalles metálicos de oro de fantasía en la cadena. Para darle un toque único a tus llaves o bolsos.",
         images: ["imagenes/llaveros3.jpg", "imagenes/llaveros4.jpg", "imagenes/llaveros5.jpg"]
     }
 ];
