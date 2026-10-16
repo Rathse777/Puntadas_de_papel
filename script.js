@@ -159,7 +159,8 @@ function getCategoryFromURL() {
         'perfumes.html': 'Perfumes',
         'flores.html': 'Flores',
         'birretes.html': 'Birretes',
-        'bolsos.html': 'Bolsos'
+        'bolsos.html': 'Bolsos',
+        'llaveros.html': 'Llaveros'
     };
 
     return categoryMap[page] || 'Todos';
