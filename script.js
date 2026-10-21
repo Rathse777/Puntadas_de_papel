@@ -373,37 +373,70 @@ if (closeModalBtn) {
     };
 }
 
-// ============================================================
-// ZOOM DE IMÁGENES (reutiliza #logo-modal)
+/// ============================================================
+// MODAL DEL LOGO AMPLIADO
 // ============================================================
 const logoContainer = document.querySelector('.logo-container');
 const logoModal = document.getElementById('logo-modal');
 const closeLogoModal = document.getElementById('close-logo-modal');
 const logoModalImg = document.querySelector('.logo-modal-img');
 
-function openImageZoom(src, isLogo = false) {
-    if (!logoModal || !logoModalImg) return;
-    logoModalImg.src = src;
-    logoModalImg.classList.toggle('is-logo', isLogo);
+function openLogoModal() {
+    if (!logoModal) return;
+    // Nos aseguramos de que muestra el logo y no una foto de producto residual
+    if (logoModalImg) {
+        logoModalImg.src = 'imagenes/logo.jpeg';
+        logoModalImg.classList.add('is-logo');
+    }
     logoModal.classList.remove('hidden');
 }
 
-// Delegación: cualquier imagen con clase de zoom abre el modal
-document.addEventListener('click', (e) => {
-    const img = e.target.closest('.product-img, .popout-large-img, .thumb-img');
-    if (img && img.src) {
-        e.stopPropagation();   // evita que también abra el detalle del producto
-        openImageZoom(img.src, false);
-    }
-});
-
-// El logo sigue abriendo en modo círculo
 if (logoContainer && logoModal) {
-    // ya tienes este listener; lo reforzamos para modo logo
-    logoContainer.addEventListener('click', () => {
-        const logoImg = logoContainer.querySelector('.store-logo');
-        if (logoImg && logoImg.src) {
-            openImageZoom(logoImg.src, true);
+    logoContainer.addEventListener('click', openLogoModal);
+}
+
+if (closeLogoModal && logoModal) {
+    closeLogoModal.onclick = () => {
+        logoModal.classList.add('hidden');
+    };
+}
+
+if (logoModal) {
+    logoModal.addEventListener('click', (e) => {
+        if (e.target === logoModal) {
+            logoModal.classList.add('hidden');
+        }
+    });
+}
+
+// ============================================================
+// ZOOM DE FOTOS DENTRO DEL MODAL DE DETALLES
+// ============================================================
+// La foto grande del popout y las miniaturas abren el zoom.
+// El modal de zoom es el mismo #logo-modal, pero sin la clase is-logo.
+
+function openZoom(src) {
+    if (!logoModal || !logoModalImg) return;
+    logoModalImg.src = src;
+    logoModalImg.classList.remove('is-logo');  // rectangular, respeta proporción
+    logoModal.classList.remove('hidden');
+}
+
+// Foto grande del detalle
+if (popoutMainImg) {
+    popoutMainImg.addEventListener('click', () => {
+        if (popoutMainImg.src) openZoom(popoutMainImg.src);
+    });
+}
+
+// Miniaturas del detalle (se regeneran en cada openProductDetails,
+// así que delegamos sobre el contenedor)
+if (popoutThumbnails) {
+    popoutThumbnails.addEventListener('click', (e) => {
+        const thumb = e.target.closest('.thumb-img');
+        if (thumb && thumb.src) {
+            e.stopPropagation();
+            openZoom(thumb.src);
         }
     });
 }
