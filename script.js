@@ -400,6 +400,38 @@ if (logoModal) {
     });
 }
 
+// ============================================================
+// ZOOM DE IMÁGENES (reutiliza #logo-modal)
+// ============================================================
+const logoModalImg = document.querySelector('.logo-modal-img');
+
+function openImageZoom(src, isLogo = false) {
+    if (!logoModal || !logoModalImg) return;
+    logoModalImg.src = src;
+    logoModalImg.classList.toggle('is-logo', isLogo);
+    logoModal.classList.remove('hidden');
+}
+
+// Delegación: cualquier imagen con clase de zoom abre el modal
+document.addEventListener('click', (e) => {
+    const img = e.target.closest('.product-img, .popout-large-img, .thumb-img');
+    if (img && img.src) {
+        e.stopPropagation();   // evita que también abra el detalle del producto
+        openImageZoom(img.src, false);
+    }
+});
+
+// El logo sigue abriendo en modo círculo
+if (logoContainer && logoModal) {
+    // ya tienes este listener; lo reforzamos para modo logo
+    logoContainer.addEventListener('click', () => {
+        const logoImg = logoContainer.querySelector('.store-logo');
+        if (logoImg && logoImg.src) {
+            openImageZoom(logoImg.src, true);
+        }
+    });
+}
+
 // INICIALIZAR
 document.addEventListener('DOMContentLoaded', () => {
     renderCatalog();

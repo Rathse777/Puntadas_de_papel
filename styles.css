@@ -176,31 +176,51 @@ h1, h2, h3, h4, .logo-text {
     box-shadow: 0 3px 10px rgba(212, 184, 106, 0.25);
 }
 
-/* Botón carrito */
+/* Botón carrito / Ver catálogo */
 .cart-icon-btn {
-    background: linear-gradient(135deg, var(--rose-light), var(--gold-light));
-    color: var(--rose-dark);
-    padding: 0.5rem 0.9rem;
+    background: linear-gradient(135deg, #ff6b9d 0%, #d4145a 100%);
+    color: #fff;
+    padding: 0.55rem 1rem;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 700;
-    border: 2px solid var(--rose-medium);
+    border: 2px solid var(--gold-medium);
     transition: all 0.25s ease;
-    box-shadow: var(--shadow-soft);
+    box-shadow:
+        0 4px 15px rgba(212, 20, 90, 0.35),
+        0 0 0 0 rgba(212, 184, 106, 0.7);
     font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    letter-spacing: 0.6px;
     white-space: nowrap;
     flex-shrink: 0;
+    position: relative;
+    animation: cart-pulse 2.4s ease-in-out infinite;
 }
 
 .cart-icon-btn:hover {
-    background: linear-gradient(135deg, var(--rose-medium), var(--gold-soft));
-    color: var(--bg-white);
-    border-color: var(--rose-deep);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ffd166 0%, #f0a500 100%);
+    color: #4a4058;
+    border-color: #ff6b9d;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow:
+        0 8px 25px rgba(240, 165, 0, 0.5),
+        0 0 20px rgba(255, 209, 102, 0.6);
+    animation: none;
 }
 
+@keyframes cart-pulse {
+    0%, 100% {
+        box-shadow:
+            0 4px 15px rgba(212, 20, 90, 0.35),
+            0 0 0 0 rgba(212, 184, 106, 0.7);
+    }
+    50% {
+        box-shadow:
+            0 4px 15px rgba(212, 20, 90, 0.35),
+            0 0 0 8px rgba(212, 184, 106, 0);
+    }
+}
 /* ==========================================================================
    GRID DE PRODUCTOS
    ========================================================================== */
@@ -1457,4 +1477,38 @@ h1, h2, h3, h4, .logo-text {
         bottom: 12px;
         right: 12px;
     }
+}
+
+/* Imagen grande dentro del modal reutilizado (productos) */
+.logo-modal-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;             /* antes era 50% para el logo */
+    border: 3px solid var(--gold-soft);
+    box-shadow: 0 0 60px rgba(212, 184, 106, 0.5);
+    background: linear-gradient(135deg, #fdfcff, #fce8ed);
+    object-fit: contain;             /* respeta proporción original */
+    cursor: zoom-out;
+}
+
+/* Cuando el modal muestra el logo, mantenemos el círculo */
+.logo-modal-img.is-logo {
+    border-radius: 50%;
+    cursor: default;
+}
+
+/* Cursor de zoom sobre las imágenes de producto */
+.product-img,
+.popout-large-img,
+.thumb-img {
+    cursor: zoom-in;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-img:hover,
+.popout-large-img:hover,
+.thumb-img:hover {
+    box-shadow: 0 0 15px rgba(212, 184, 106, 0.5);
 }
