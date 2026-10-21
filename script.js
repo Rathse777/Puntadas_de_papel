@@ -374,35 +374,11 @@ if (closeModalBtn) {
 }
 
 // ============================================================
-// MODAL DEL LOGO AMPLIADO
+// ZOOM DE IMÁGENES (reutiliza #logo-modal)
 // ============================================================
 const logoContainer = document.querySelector('.logo-container');
 const logoModal = document.getElementById('logo-modal');
 const closeLogoModal = document.getElementById('close-logo-modal');
-
-if (logoContainer && logoModal) {
-    logoContainer.addEventListener('click', () => {
-        logoModal.classList.remove('hidden');
-    });
-}
-
-if (closeLogoModal && logoModal) {
-    closeLogoModal.onclick = () => {
-        logoModal.classList.add('hidden');
-    };
-}
-
-if (logoModal) {
-    logoModal.addEventListener('click', (e) => {
-        if (e.target === logoModal) {
-            logoModal.classList.add('hidden');
-        }
-    });
-}
-
-// ============================================================
-// ZOOM DE IMÁGENES (reutiliza #logo-modal)
-// ============================================================
 const logoModalImg = document.querySelector('.logo-modal-img');
 
 function openImageZoom(src, isLogo = false) {
